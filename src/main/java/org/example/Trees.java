@@ -5,7 +5,8 @@ public class Trees extends Object{
     private String name;
     private int type;
     private boolean IfCollected;
-    public Trees(int id, String name, int type, boolean IfCollected) {
+    public Trees(int id, String name, int type, boolean IfCollected, int position_x, int position_y) {
+        super(position_x, position_y);
         this.id = id;
         this.name = name;
         this.type = type;
