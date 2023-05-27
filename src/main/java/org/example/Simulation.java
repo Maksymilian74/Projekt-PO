@@ -23,7 +23,7 @@ public class Simulation {
         this.CharacterMove = CharacterMove;
     }
 
-    public void runSimulation() {
+    public static void runSimulation() {
         System.out.println("Wszystko działa");
     }
 }
