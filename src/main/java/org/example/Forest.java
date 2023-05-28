@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Scanner;
+
 public class Forest {
     private int size_x;
     private int size_y;
@@ -27,6 +29,16 @@ public class Forest {
         this.size_y = size_y;
     }
 
+    public void getForestSize() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Podaj wysokość lasu: ");
+        int height = scanner.nextInt();
+        System.out.println("Podaj szerokość lasu: ");
+        int width = scanner.nextInt();
+
+        setSize_x(width);
+        setSize_y(height);
+    }
     /*public void generateMap() {
 
     }*/
