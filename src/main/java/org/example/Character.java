@@ -19,7 +19,7 @@ public class Character extends Object {
         String direction;
 
         do {
-            System.out.println("Wybierz kierunek ruchu (lewo, prawo, tył, przód):");
+            System.out.println("Wybierz kierunek ruchu (lewo, prawo, góra, dół):");
             direction = scanner.nextLine();
         } while (!direction.equalsIgnoreCase("lewo") &&
                 !direction.equalsIgnoreCase("prawo") &&
