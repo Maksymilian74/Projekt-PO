@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Scanner;
+
 public class Simulation {
     private int Round;
     private int CharacterMove;
@@ -25,5 +27,29 @@ public class Simulation {
 
     public static void runSimulation() {
         System.out.println("Wszystko działa");
+    }
+
+    public void characterMove() {
+        Scanner scanner = new Scanner(System.in);
+        String direction;
+
+        do {
+            System.out.println("Wybierz kierunek ruchu (lewo, prawo, góra, dół):");
+            direction = scanner.nextLine();
+        } while (!direction.equalsIgnoreCase("lewo") &&
+                !direction.equalsIgnoreCase("prawo") &&
+                !direction.equalsIgnoreCase("góra") &&
+                !direction.equalsIgnoreCase("dół"));
+
+        switch (direction.toLowerCase()) {
+            case "lewo":
+                break;
+            case "prawo":
+                break;
+            case "góra":
+                break;
+            case "dół":
+                break;
+        }
     }
 }

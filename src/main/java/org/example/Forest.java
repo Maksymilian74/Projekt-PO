@@ -2,20 +2,17 @@ package org.example;
 
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.List;
+
 public class Forest {
     private int size_x;
     private int size_y;
     private Data Data;
-    private List<List<String>> forestMap;
+    private ArrayList<ArrayList<String>> forestMap;
     public Forest() {
         this.size_x = size_x;
         this.size_y = size_y;
         Data = new Data();
         this.forestMap = new ArrayList<>();
-
-
-
     }
 
     public int getSize_x() {
@@ -62,16 +59,16 @@ public class Forest {
     public void generateForest() {
         forestMap.clear();
 
-        for (int y = 0; y < size_y; y++) {
-            List<String> row = new ArrayList<>();
-            for (int x = 0; x < size_x; x++) {
+        for (int y = 0; y < getSize_y(); y++) {
+            ArrayList<String> row = new ArrayList<>();
+            for (int x = 0; x < getSize_x(); x++) {
                 row.add("L");
             }
             forestMap.add(row);
         }
     }
     public void displayForest() {
-        for (List<String> row : forestMap) {
+        for (ArrayList<String> row : forestMap) {
             for (String cell : row) {
                 System.out.print(cell);
             }

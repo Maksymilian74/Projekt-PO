@@ -29,7 +29,7 @@ public class Main {
                     forest.displayForest();
                     break;
                 case 0:
-                    System.out.println("Niedozobaczenia!! Elo xD");
+                    System.out.println("Koniec symulacji");
                     return;
                 default:
                     System.out.println("Nieprawidłowa opcja. Spróbuj ponownie.");

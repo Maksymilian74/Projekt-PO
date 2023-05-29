@@ -2,7 +2,6 @@ package org.example;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 
 public class Character extends Object {
@@ -13,29 +12,6 @@ public class Character extends Object {
         super(position_x, position_y);
         Basket = new HashMap<>();
         this.id = id;
-    }
-    public void move() {
-        Scanner scanner = new Scanner(System.in);
-        String direction;
-
-        do {
-            System.out.println("Wybierz kierunek ruchu (lewo, prawo, góra, dół):");
-            direction = scanner.nextLine();
-        } while (!direction.equalsIgnoreCase("lewo") &&
-                !direction.equalsIgnoreCase("prawo") &&
-                !direction.equalsIgnoreCase("góra") &&
-                !direction.equalsIgnoreCase("dół"));
-
-        switch (direction.toLowerCase()) {
-            case "lewo":
-                break;
-            case "prawo":
-                break;
-            case "góra":
-                break;
-            case "dół":
-                break;
-        }
     }
 
     public int getId() {
