@@ -64,8 +64,6 @@ public class Forest {
     public void generateForest() {
         forestMap.clear();
         Random random = new Random();
-        System.out.println("x: " + getSize_x());
-        System.out.println("y: " + getSize_y());
         for (int y = 0; y < getSize_y(); y++) {
             ArrayList<String> row = new ArrayList<>();
             for (int x = 0; x < getSize_x(); x++) {
@@ -74,27 +72,27 @@ public class Forest {
 
                 if ((x == 0) || (x == getSize_x() - 1) || (y == 0) || (y == getSize_y() - 1)) {
                     //1 przypadek obrzeża lasu
-                    if (randomNumber < 0.4) {
+                    if (randomNumber < 0.2 || (randomNumber >=0.8 && randomNumber <0.95)) {
                         row.add("L");
-                    } else if (randomNumber < 0.70) {
+                    } else if ((randomNumber >= 0.2 && randomNumber < 0.35) || (randomNumber >= 0.5 && randomNumber < 0.65)) {
                         row.add("G");
-                    } else if (randomNumber < 0.95) {
+                    } else if ((randomNumber >= 0.35 && randomNumber < 0.5) || (randomNumber >= 0.65 && randomNumber < 0.8)) {
                         row.add("K");
-                    } else {
+                    } else if(randomNumber >= 0.95){
                         row.add("W");
                     }
 
                 } else {
                     //2 przypadek nie obrzeża lasu
-                    if (randomNumber < 0.2) {
+                    if (randomNumber < 0.15 || (randomNumber >=0.85 && randomNumber <0.95)) {
                         row.add("L");
-                    } else if (randomNumber < 0.45) {
+                    } else if ((randomNumber >= 0.15 && randomNumber < 0.30) || (randomNumber >= 0.55 && randomNumber < 0.65)) {
                         row.add("G");
-                    } else if (randomNumber < 0.70) {
-                        row.add("D");
-                    } else if (randomNumber < 0.95) {
+                    } else if ((randomNumber >= 0.30 && randomNumber < 0.45) || (randomNumber >= 0.65 && randomNumber < 0.75)) {
                         row.add("K");
-                    } else {
+                    } else if((randomNumber >= 0.45 && randomNumber < 0.55) || (randomNumber >= 0.75 && randomNumber < 0.85)){
+                        row.add("D");
+                    } else if(randomNumber >= 0.95){
                         row.add("W");
                     }
 
@@ -108,9 +106,25 @@ public class Forest {
     public void displayForest() {
         for (ArrayList<String> row : forestMap) {
             for (String cell : row) {
-                System.out.print(cell);
+                String ColorCode = getColorCode(cell);
+                System.out.print(ColorCode + cell + "\u001B[0m " + " " );
             }
             System.out.println();
+        }
+    }
+
+    private String getColorCode(String cell) {
+        switch(cell) {
+            case "D":
+                return "\u001B[32m"; // Kolor dla drzew (zielony)
+            case "G":
+                return "\u001B[33m"; // Kolor dla grzybów (żółty)
+            case "K":
+                return "\u001B[31m"; // Kolor dla owoców (czerwony)
+            case "W":
+                return "\u001B[30m"; // Kolor dla wilka (czarny)
+            default:
+                return "\u001B[0m"; // Domyślny kolor (reset)
         }
     }
 }
