@@ -52,50 +52,60 @@ public class Main {
 
         String colorCode;
 
+        System.out.println("╔════════════╦═══════════════════════╗");
+        System.out.println("║   Symbol   ║       Opis            ║");
+        System.out.println("╠════════════╬═══════════════════════╣");
+
+        System.out.println("║  \u263A        ║ główny bohater        ║");
+
         colorCode = forest.getColorCode("B");
-        System.out.println(colorCode + "B" + "\u001B[0m" + " - borówki");
+        System.out.println("║ " + colorCode + "B" + "\u001B[0m" + "          ║ borówki               ║");
 
         colorCode = forest.getColorCode("J");
-        System.out.println(colorCode + "J" + "\u001B[0m" + " - jagody");
+        System.out.println("║ " + colorCode + "J" + "\u001B[0m" + "          ║ jagody                ║");
 
         colorCode = forest.getColorCode("E");
-        System.out.println(colorCode + "E" + "\u001B[0m" + " - jeżyny");
+        System.out.println("║ " + colorCode + "E" + "\u001B[0m" + "          ║ jeżyny                ║");
 
         colorCode = forest.getColorCode("A");
-        System.out.println(colorCode + "A" + "\u001B[0m" + " - maliny");
+        System.out.println("║ " + colorCode + "A" + "\u001B[0m" + "          ║ maliny                ║");
 
         colorCode = forest.getColorCode("R");
-        System.out.println(colorCode + "R" + "\u001B[0m" + " - brzoza");
+        System.out.println("║ " + colorCode + "R" + "\u001B[0m" + "          ║ brzoza                ║");
 
         colorCode = forest.getColorCode("S");
-        System.out.println(colorCode + "S" + "\u001B[0m" + " - sosna");
+        System.out.println("║ " + colorCode + "S" + "\u001B[0m" + "          ║ sosna                 ║");
 
         colorCode = forest.getColorCode("D");
-        System.out.println(colorCode + "D" + "\u001B[0m" + " - dąb");
+        System.out.println("║ " + colorCode + "D" + "\u001B[0m" + "          ║ dąb                   ║");
 
         colorCode = forest.getColorCode("I");
-        System.out.println(colorCode + "I" + "\u001B[0m" + " - pieprznik");
+        System.out.println("║ " + colorCode + "I" + "\u001B[0m" + "          ║ pieprznik             ║");
 
         colorCode = forest.getColorCode("M");
-        System.out.println(colorCode + "M" + "\u001B[0m" + " - maitake");
+        System.out.println("║ " + colorCode + "M" + "\u001B[0m" + "          ║ maitake               ║");
 
         colorCode = forest.getColorCode("O");
-        System.out.println(colorCode + "O" + "\u001B[0m" + " - borowik");
+        System.out.println("║ " + colorCode + "O" + "\u001B[0m" + "          ║ borowik               ║");
 
         colorCode = forest.getColorCode("P");
-        System.out.println(colorCode + "P" + "\u001B[0m" + " - podgrzybek");
+        System.out.println("║ " + colorCode + "P" + "\u001B[0m" + "          ║ podgrzybek            ║");
 
         colorCode = forest.getColorCode("C");
-        System.out.println(colorCode + "C" + "\u001B[0m" + " - muchomor czerwony");
+        System.out.println("║ " + colorCode + "C" + "\u001B[0m" + "          ║ muchomor czerwony     ║");
 
         colorCode = forest.getColorCode("T");
-        System.out.println(colorCode + "T" + "\u001B[0m" + " - muchomor sromotnikowy");
+        System.out.println("║ " + colorCode + "T" + "\u001B[0m" + "          ║ muchomor sromotnikowy ║");
 
         colorCode = forest.getColorCode("L");
-        System.out.println(colorCode + "L" + "\u001B[0m" + " - puste pole lasu");
+        System.out.println("║ " + colorCode + "L" + "\u001B[0m" + "          ║ puste pole lasu       ║");
 
-        System.out.println("W - wilk");
+        colorCode = forest.getColorCode("W");
+        System.out.println("║ " + colorCode + "W" + "\u001B[0m" + "          ║ wilk                  ║");
+
+        System.out.println("╚════════════╩═══════════════════════╝");
     }
+
 
 
 }
