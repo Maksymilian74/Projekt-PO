@@ -1,0 +1,49 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"50449fb7-f461-49bf-a63e-acba5781ae13\" name=\"Changes\" comment=\"Modyfikacja klasy Forest:&#10;-użytkownik może podawac szerokość i wysokość planszy lasu\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/Forest.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/Forest.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/Main.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"useMavenConfig\" value=\"true\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n    <option name=\"importingSettings\">\r\n      <MavenImportingSettings>\r\n        <option name=\"workspaceImportEnabled\" value=\"true\" />\r\n      </MavenImportingSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2QNMDDGRTyjMHtZDrgP5YVixspb\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"50449fb7-f461-49bf-a63e-acba5781ae13\" name=\"Changes\" comment=\"\" />\r\n      <created>1685189465817</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1685189465817</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Wstępne zaimplementowanie menu ruchu postaci\">\r\n      <created>1685287273128</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1685287273128</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Drobna poprawka menu ruchu\">\r\n      <created>1685287388897</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1685287388897</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Modyfikacja klasy Forest:&#10;-użytkownik może podawac szerokość i wysokość planszy lasu\">\r\n      <created>1685288539983</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1685288539983</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Wstępne zaimplementowanie menu ruchu postaci\" />\r\n    <MESSAGE value=\"Drobna poprawka menu ruchu\" />\r\n    <MESSAGE value=\"Modyfikacja klasy Forest:&#10;-użytkownik może podawac szerokość i wysokość planszy lasu\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Modyfikacja klasy Forest:&#10;-użytkownik może podawac szerokość i wysokość planszy lasu\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 878d75e0039a50b42643c42e0ef3cfb5bba43300)
++++ b/.idea/workspace.xml	(date 1685290249410)
+@@ -4,11 +4,7 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="50449fb7-f461-49bf-a63e-acba5781ae13" name="Changes" comment="Modyfikacja klasy Forest:&#10;-użytkownik może podawac szerokość i wysokość planszy lasu">
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Forest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Forest.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+-    </list>
++    <list default="true" id="50449fb7-f461-49bf-a63e-acba5781ae13" name="Changes" comment="Modyfikacja klasy Forest:&#10;-użytkownik może podawac szerokość i wysokość planszy lasu&#10;-wstępne generowanie lasu na konsoli, literka L ma oznaczać  pole lasu&#10;Modyfikacja klasy Main:&#10;- dodanie menu w któym program umożliwia użytkownikowi podanie rozmiaru lasów a następnie wygenerowanie go i wyśiwetlenie na konsoli" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -74,7 +70,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1685288539983</updated>
+     </task>
+-    <option name="localTasksCounter" value="4" />
++    <task id="LOCAL-00004" summary="Modyfikacja klasy Forest:&#10;-użytkownik może podawac szerokość i wysokość planszy lasu&#10;-wstępne generowanie lasu na konsoli, literka L ma oznaczać  pole lasu&#10;Modyfikacja klasy Main:&#10;- dodanie menu w któym program umożliwia użytkownikowi podanie rozmiaru lasów a następnie wygenerowanie go i wyśiwetlenie na konsoli">
++      <created>1685290104083</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1685290104083</updated>
++    </task>
++    <option name="localTasksCounter" value="5" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -92,6 +95,7 @@
+     <MESSAGE value="Wstępne zaimplementowanie menu ruchu postaci" />
+     <MESSAGE value="Drobna poprawka menu ruchu" />
+     <MESSAGE value="Modyfikacja klasy Forest:&#10;-użytkownik może podawac szerokość i wysokość planszy lasu" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Modyfikacja klasy Forest:&#10;-użytkownik może podawac szerokość i wysokość planszy lasu" />
++    <MESSAGE value="Modyfikacja klasy Forest:&#10;-użytkownik może podawac szerokość i wysokość planszy lasu&#10;-wstępne generowanie lasu na konsoli, literka L ma oznaczać  pole lasu&#10;Modyfikacja klasy Main:&#10;- dodanie menu w któym program umożliwia użytkownikowi podanie rozmiaru lasów a następnie wygenerowanie go i wyśiwetlenie na konsoli" />
++    <option name="LAST_COMMIT_MESSAGE" value="Modyfikacja klasy Forest:&#10;-użytkownik może podawac szerokość i wysokość planszy lasu&#10;-wstępne generowanie lasu na konsoli, literka L ma oznaczać  pole lasu&#10;Modyfikacja klasy Main:&#10;- dodanie menu w któym program umożliwia użytkownikowi podanie rozmiaru lasów a następnie wygenerowanie go i wyśiwetlenie na konsoli" />
+   </component>
+ </project>
+\ No newline at end of file

@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="50449fb7-f461-49bf-a63e-acba5781ae13" name="Changes" comment="Dodanie kolorów do mapy">
+    <list default="true" id="50449fb7-f461-49bf-a63e-acba5781ae13" name="Changes" comment="Naprawienie generatora lasu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Forest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Forest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,19 +57,11 @@
       <option name="project" value="LOCAL" />
       <updated>1685436743666</updated>
     </task>
-    <task id="LOCAL-00002" summary="Dodanie kolorów do mapy">
-      <created>1685439032409</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1685439032409</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Naprawienie generatora lasu" />
-    <MESSAGE value="Dodanie kolorów do mapy" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodanie kolorów do mapy" />
+    <option name="LAST_COMMIT_MESSAGE" value="Naprawienie generatora lasu" />
   </component>
 </project>
