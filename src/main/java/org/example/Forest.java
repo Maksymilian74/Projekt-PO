@@ -65,60 +65,46 @@ public class Forest {
         forestMap.clear();
         Random random = new Random();
         System.out.println("x: " + getSize_x());
-        System.out.println("y: "+ getSize_y());
+        System.out.println("y: " + getSize_y());
         for (int y = 0; y < getSize_y(); y++) {
             ArrayList<String> row = new ArrayList<>();
             for (int x = 0; x < getSize_x(); x++) {
                 //tutaj trzeba zrobić mechanizm generowania poszczególnych obiektów w lesie
                 double randomNumber = random.nextDouble();
-                if(x!=0 && x!=getSize_x()-1 && y!=0 && y!=getSize_y()-1)
-                {
-                    if(forestMap.get(y).get(x-1) != "D" || forestMap.get(y).get(x+1) != "D" || forestMap.get(y-1).get(x) != "D" || forestMap.get(y+1).get(x) != "D") {
-                        //1 przypadek sprawdzenie czy obok nie ma innego drzewa
-                        if(randomNumber < 0.3) {
-                            row.add("D");
-                        } else if(randomNumber < 0.6) {
-                            row.add("G");
-                        } else if (randomNumber < 0.9) {
-                            row.add("K");
-                        } else {
-                            row.add("W");
-                        }
 
-
-                    } else {
-                        //2 przypadek nie obrzeża lasu i z drzewem obok
-                        if(randomNumber < 0.1) {
-                            row.add("D");
-                        } else if(randomNumber < 0.5) {
-                            row.add("G");
-                        } else if (randomNumber < 0.9) {
-                            row.add("K");
-                        } else {
-                            row.add("W");
-                        }
-
-                    }
-
-                }
-                else {
-                    //3 przypadek obrzeża lasu
-                    if(randomNumber < 0.6) {
+                if ((x == 0) || (x == getSize_x() - 1) || (y == 0) || (y == getSize_y() - 1)) {
+                    //1 przypadek obrzeża lasu
+                    if (randomNumber < 0.4) {
+                        row.add("L");
+                    } else if (randomNumber < 0.70) {
                         row.add("G");
-                    } else if (randomNumber < 0.9) {
+                    } else if (randomNumber < 0.95) {
                         row.add("K");
                     } else {
                         row.add("W");
                     }
 
+                } else {
+                    //2 przypadek nie obrzeża lasu
+                    if (randomNumber < 0.2) {
+                        row.add("L");
+                    } else if (randomNumber < 0.45) {
+                        row.add("G");
+                    } else if (randomNumber < 0.70) {
+                        row.add("D");
+                    } else if (randomNumber < 0.95) {
+                        row.add("K");
+                    } else {
+                        row.add("W");
+                    }
 
                 }
-
-
             }
             forestMap.add(row);
+
         }
     }
+
     public void displayForest() {
         for (ArrayList<String> row : forestMap) {
             for (String cell : row) {
