@@ -154,7 +154,7 @@ public class Forest {
         }
     }
 
-    private String getColorCode(String cell) {
+    public String getColorCode(String cell) {
         switch(cell) {
             case "D","S","R":
                 return "\u001B[32m"; // Kolor dla drzew (zielony)
