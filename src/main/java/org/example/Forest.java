@@ -72,27 +72,68 @@ public class Forest {
 
                 if ((x == 0) || (x == getSize_x() - 1) || (y == 0) || (y == getSize_y() - 1)) {
                     //1 przypadek obrzeża lasu
-                    if (randomNumber < 0.2 || (randomNumber >=0.8 && randomNumber <0.95)) {
+                    if (randomNumber < 0.25 || (randomNumber >= 0.7 && randomNumber < 0.995)) {
                         row.add("L");
-                    } else if ((randomNumber >= 0.2 && randomNumber < 0.35) || (randomNumber >= 0.5 && randomNumber < 0.65)) {
-                        row.add("G");
-                    } else if ((randomNumber >= 0.35 && randomNumber < 0.5) || (randomNumber >= 0.65 && randomNumber < 0.8)) {
-                        row.add("K");
-                    } else if(randomNumber >= 0.95){
+                    } else if ((randomNumber >= 0.25 && randomNumber < 0.4) || (randomNumber >= 0.5 && randomNumber < 0.65)) {
+                        if((randomNumber >= 0.25 && randomNumber < 0.3))
+                        row.add("I");
+                        else if(randomNumber >= 0.3 && randomNumber < 0.35)
+                            row.add("M");
+                        else if(randomNumber >= 0.35 && randomNumber < 0.4)
+                            row.add("O");
+                        else if(randomNumber >= 0.5 && randomNumber < 0.55)
+                            row.add("P");
+                        else if(randomNumber >= 0.55 && randomNumber < 0.6)
+                            row.add("C");
+                        else if(randomNumber >= 0.6 && randomNumber < 0.65)
+                            row.add("T");
+                    } else if ((randomNumber >= 0.4 && randomNumber < 0.5) || (randomNumber >= 0.65 && randomNumber < 0.7)) {
+                        if(randomNumber >= 0.4 && randomNumber < 0.45)
+                        row.add("E");
+                        else if(randomNumber >= 0.45 && randomNumber < 0.5)
+                            row.add("J");
+                        else if(randomNumber >= 0.65 && randomNumber < 0.68)
+                            row.add("B");
+                        else if(randomNumber >= 0.68 && randomNumber < 0.7)
+                            row.add("A");
+                    } else if(randomNumber >= 0.995){
                         row.add("W");
                     }
 
                 } else {
                     //2 przypadek nie obrzeża lasu
-                    if (randomNumber < 0.15 || (randomNumber >=0.85 && randomNumber <0.95)) {
+                    if (randomNumber < 0.25 || (randomNumber >=0.85 && randomNumber <0.995)) {
                         row.add("L");
-                    } else if ((randomNumber >= 0.15 && randomNumber < 0.30) || (randomNumber >= 0.55 && randomNumber < 0.65)) {
-                        row.add("G");
-                    } else if ((randomNumber >= 0.30 && randomNumber < 0.45) || (randomNumber >= 0.65 && randomNumber < 0.75)) {
-                        row.add("K");
-                    } else if((randomNumber >= 0.45 && randomNumber < 0.55) || (randomNumber >= 0.75 && randomNumber < 0.85)){
-                        row.add("D");
-                    } else if(randomNumber >= 0.95){
+                    } else if ((randomNumber >= 0.25 && randomNumber < 0.45) || (randomNumber >= 0.55 && randomNumber < 0.65)) {
+                        if((randomNumber >= 0.25 && randomNumber < 0.3))
+                            row.add("I");
+                        else if(randomNumber >= 0.3 && randomNumber < 0.35)
+                            row.add("M");
+                        else if(randomNumber >= 0.35 && randomNumber < 0.4)
+                            row.add("O");
+                        else if(randomNumber >= 0.4 && randomNumber < 0.45)
+                            row.add("P");
+                        else if(randomNumber >= 0.55 && randomNumber < 0.6)
+                            row.add("C");
+                        else if(randomNumber >= 0.6 && randomNumber < 0.65)
+                            row.add("T");
+                    } else if ((randomNumber >= 0.45 && randomNumber < 0.5) || (randomNumber >= 0.65 && randomNumber < 0.8)) {
+                        if(randomNumber >= 0.45 && randomNumber < 0.5)
+                            row.add("E");
+                        else if(randomNumber >= 0.65 && randomNumber < 0.70)
+                            row.add("J");
+                        else if(randomNumber >= 0.7 && randomNumber < 0.75)
+                            row.add("B");
+                        else if(randomNumber >= 0.75 && randomNumber < 0.8)
+                            row.add("A");
+                    } else if((randomNumber >= 0.5 && randomNumber < 0.55) || (randomNumber >= 0.8 && randomNumber < 0.85)){
+                        if(randomNumber >= 0.5 && randomNumber < 0.54)
+                            row.add("D");
+                        else if(randomNumber >= 0.8 && randomNumber < 0.84)
+                            row.add("S");
+                        else if((randomNumber >= 0.54 && randomNumber < 0.55) || (randomNumber >= 0.84 && randomNumber < 0.85) )
+                            row.add("R");
+                    } else if(randomNumber >= 0.995){
                         row.add("W");
                     }
 
@@ -115,11 +156,11 @@ public class Forest {
 
     private String getColorCode(String cell) {
         switch(cell) {
-            case "D":
+            case "D","S","R":
                 return "\u001B[32m"; // Kolor dla drzew (zielony)
-            case "G":
+            case "I","M","O","P","C","T":
                 return "\u001B[33m"; // Kolor dla grzybów (żółty)
-            case "K":
+            case "B","J","E","A":
                 return "\u001B[31m"; // Kolor dla owoców (czerwony)
             case "W":
                 return "\u001B[30m"; // Kolor dla wilka (czarny)
