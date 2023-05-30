@@ -1,0 +1,281 @@
+Index: src/main/java/org/example/Forest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example;\r\n\r\nimport java.util.Scanner;\r\nimport java.util.ArrayList;\r\n\r\npublic class Forest {\r\n    private int size_x;\r\n    private int size_y;\r\n    private Data Data;\r\n    private ArrayList<ArrayList<String>> forestMap;\r\n    public Forest() {\r\n        this.size_x = size_x;\r\n        this.size_y = size_y;\r\n        Data = new Data();\r\n        this.forestMap = new ArrayList<>();\r\n    }\r\n\r\n    public int getSize_x() {\r\n        return size_x;\r\n    }\r\n\r\n    public void setSize_x(int size_x) {\r\n        this.size_x = size_x;\r\n    }\r\n\r\n    public int getSize_y() {\r\n        return size_y;\r\n    }\r\n\r\n    public void setSize_y(int size_y) {\r\n        this.size_y = size_y;\r\n    }\r\n\r\n    public void getForestSize() {\r\n        Scanner scanner = new Scanner(System.in);\r\n        int width, height;\r\n\r\n        while (true) {\r\n            System.out.println(\"Podaj szerokość lasu (do 50): \");\r\n            width = scanner.nextInt();\r\n            if (width <= 50)\r\n                break;\r\n            else\r\n                System.out.println(\"Nieprawidłowa szerokość. Podaj wartość do 50.\");\r\n        }\r\n\r\n        while (true) {\r\n            System.out.println(\"Podaj wysokość lasu (do 50): \");\r\n            height = scanner.nextInt();\r\n            if (height <= 50)\r\n                break;\r\n            else\r\n                System.out.println(\"Nieprawidłowa wysokość. Podaj wartość do 50.\");\r\n        }\r\n\r\n        setSize_x(width);\r\n        setSize_y(height);\r\n    }\r\n    public void generateForest() {\r\n        forestMap.clear();\r\n\r\n        for (int y = 0; y < getSize_y(); y++) {\r\n            ArrayList<String> row = new ArrayList<>();\r\n            for (int x = 0; x < getSize_x(); x++) {\r\n                row.add(\"L\");\r\n            }\r\n            forestMap.add(row);\r\n        }\r\n    }\r\n    public void displayForest() {\r\n        for (ArrayList<String> row : forestMap) {\r\n            for (String cell : row) {\r\n                System.out.print(cell);\r\n            }\r\n            System.out.println();\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/Forest.java b/src/main/java/org/example/Forest.java
+--- a/src/main/java/org/example/Forest.java	(revision 0bc1a8b454887875a34d475e5a0ab7fe1633d4a7)
++++ b/src/main/java/org/example/Forest.java	(date 1685396428505)
+@@ -6,12 +6,13 @@
+ public class Forest {
+     private int size_x;
+     private int size_y;
+-    private Data Data;
++    private Data data;
+     private ArrayList<ArrayList<String>> forestMap;
++
+     public Forest() {
+-        this.size_x = size_x;
+-        this.size_y = size_y;
+-        Data = new Data();
++        this.size_x = 0;
++        this.size_y = 0;
++        this.data = new Data();
+         this.forestMap = new ArrayList<>();
+     }
+ 
+@@ -56,6 +57,7 @@
+         setSize_x(width);
+         setSize_y(height);
+     }
++
+     public void generateForest() {
+         forestMap.clear();
+ 
+@@ -67,6 +69,7 @@
+             forestMap.add(row);
+         }
+     }
++
+     public void displayForest() {
+         for (ArrayList<String> row : forestMap) {
+             for (String cell : row) {
+Index: src/main/java/org/example/Simulation.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example;\r\n\r\nimport java.util.Scanner;\r\n\r\npublic class Simulation {\r\n    private int Round;\r\n    private int CharacterMove;\r\n    private Forest Forest;\r\n\r\n    public Simulation(int Round, int CharacterMove, Forest Forest) {\r\n        this.Round = Round;\r\n        this.CharacterMove = CharacterMove;\r\n        Forest = new Forest();\r\n    }\r\n\r\n    public int getRound() {\r\n        return Round;\r\n    }\r\n\r\n    public int getCharacterMove() {\r\n        return CharacterMove;\r\n    }\r\n\r\n    public void setCharacterMove(int CharacterMove) {\r\n        this.CharacterMove = CharacterMove;\r\n    }\r\n\r\n    public static void runSimulation() {\r\n        System.out.println(\"Wszystko działa\");\r\n    }\r\n\r\n    public void characterMove() {\r\n        Scanner scanner = new Scanner(System.in);\r\n        String direction;\r\n\r\n        do {\r\n            System.out.println(\"Wybierz kierunek ruchu (lewo, prawo, góra, dół):\");\r\n            direction = scanner.nextLine();\r\n        } while (!direction.equalsIgnoreCase(\"lewo\") &&\r\n                !direction.equalsIgnoreCase(\"prawo\") &&\r\n                !direction.equalsIgnoreCase(\"góra\") &&\r\n                !direction.equalsIgnoreCase(\"dół\"));\r\n\r\n        switch (direction.toLowerCase()) {\r\n            case \"lewo\":\r\n                break;\r\n            case \"prawo\":\r\n                break;\r\n            case \"góra\":\r\n                break;\r\n            case \"dół\":\r\n                break;\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/Simulation.java b/src/main/java/org/example/Simulation.java
+--- a/src/main/java/org/example/Simulation.java	(revision 0bc1a8b454887875a34d475e5a0ab7fe1633d4a7)
++++ b/src/main/java/org/example/Simulation.java	(date 1685396428532)
+@@ -3,30 +3,41 @@
+ import java.util.Scanner;
+ 
+ public class Simulation {
+-    private int Round;
+-    private int CharacterMove;
+-    private Forest Forest;
++    private int round;
++    private int characterMove;
++    private Forest forest;
++    private int characterX;
++    private int characterY;
+ 
+-    public Simulation(int Round, int CharacterMove, Forest Forest) {
+-        this.Round = Round;
+-        this.CharacterMove = CharacterMove;
+-        Forest = new Forest();
++    public Simulation(int round, int characterMove, Forest forest) {
++        this.round = round;
++        this.characterMove = characterMove;
++        this.forest = forest;
++        this.characterX = -1;
++        this.characterY = -1;
+     }
+ 
+     public int getRound() {
+-        return Round;
++        return round;
+     }
+ 
+     public int getCharacterMove() {
+-        return CharacterMove;
++        return characterMove;
+     }
+ 
+-    public void setCharacterMove(int CharacterMove) {
+-        this.CharacterMove = CharacterMove;
++    public void setCharacterMove(int characterMove) {
++        this.characterMove = characterMove;
+     }
+ 
+-    public static void runSimulation() {
+-        System.out.println("Wszystko działa");
++    public void placeCharacter(int x, int y) {
++        if (x >= 0 && x < forest.getSize_x() && y >= 0 && y < forest.getSize_y()) {
++            characterX = x;
++            characterY = y;
++            forest.getForestMap().get(y).set(x, "*");
++            System.out.println("Postać została umieszczona na pozycji (" + x + "," + y + ").");
++        } else {
++            System.out.println("Nieprawidłowa pozycja. Postać nie może zostać umieszczona na tej pozycji.");
++        }
+     }
+ 
+     public void characterMove() {
+@@ -43,13 +54,29 @@
+ 
+         switch (direction.toLowerCase()) {
+             case "lewo":
++                moveCharacter(characterX - 1, characterY);
+                 break;
+             case "prawo":
++                moveCharacter(characterX + 1, characterY);
+                 break;
+             case "góra":
++                moveCharacter(characterX, characterY - 1);
+                 break;
+             case "dół":
++                moveCharacter(characterX, characterY + 1);
+                 break;
+         }
+     }
++
++    private void moveCharacter(int newX, int newY) {
++        if (newX >= 0 && newX < forest.getSize_x() && newY >= 0 && newY < forest.getSize_y()) {
++            forest.getForestMap().get(characterY).set(characterX, "L");
++            characterX = newX;
++            characterY = newY;
++            forest.getForestMap().get(newY).set(newX, "*");
++            System.out.println("Postać przesunięta na pozycję (" + newX + "," + newY + ").");
++        } else {
++            System.out.println("Nieprawidłowy ruch. Postać nie może wyjść poza granice lasu.");
++        }
++    }
+ }
+Index: src/main/java/org/example/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example;\r\n\r\nimport java.util.Scanner;\r\n\r\npublic class Main {\r\n    public static void main(String[] args) {\r\n\r\n        Simulation.runSimulation();\r\n        Scanner scanner = new Scanner(System.in);\r\n        Forest forest = new Forest();\r\n\r\n        while (true) {\r\n            System.out.println(\"\\nWybierz opcję:\");\r\n            System.out.println(\"1. Wygeneruj nową mapę lasu\");\r\n            System.out.println(\"2. Wyświetl aktualną mapę lasu\");\r\n            System.out.println(\"0. Zakończ program\");\r\n\r\n            int option = scanner.nextInt();\r\n            scanner.nextLine();\r\n\r\n            switch (option) {\r\n                case 1:\r\n                    forest.getForestSize();\r\n                    forest.generateForest();\r\n                    System.out.println(\"Mapa lasu została wygenerowana.\");\r\n                    break;\r\n                case 2:\r\n                    System.out.println(\"Aktualna mapa lasu:\");\r\n                    forest.displayForest();\r\n                    break;\r\n                case 0:\r\n                    System.out.println(\"Koniec symulacji\");\r\n                    return;\r\n                default:\r\n                    System.out.println(\"Nieprawidłowa opcja. Spróbuj ponownie.\");\r\n            }\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/Main.java b/src/main/java/org/example/Main.java
+--- a/src/main/java/org/example/Main.java	(revision 0bc1a8b454887875a34d475e5a0ab7fe1633d4a7)
++++ b/src/main/java/org/example/Main.java	(date 1685396593986)
+@@ -5,14 +5,16 @@
+ public class Main {
+     public static void main(String[] args) {
+ 
+-        Simulation.runSimulation();
+         Scanner scanner = new Scanner(System.in);
+         Forest forest = new Forest();
++        Simulation simulation = new Simulation(0, 0, forest);
+ 
+         while (true) {
+             System.out.println("\nWybierz opcję:");
+             System.out.println("1. Wygeneruj nową mapę lasu");
+             System.out.println("2. Wyświetl aktualną mapę lasu");
++            System.out.println("3. Ustaw postać na pozycji 0,0");
++            System.out.println("4. Porusz postacią");
+             System.out.println("0. Zakończ program");
+ 
+             int option = scanner.nextInt();
+@@ -27,6 +29,13 @@
+                 case 2:
+                     System.out.println("Aktualna mapa lasu:");
+                     forest.displayForest();
++                    break;
++                case 3:
++                    simulation.placeCharacter(0, 0);
++                    System.out.println("Postać została umieszczona na pozycji 0,0.");
++                    break;
++                case 4:
++                    simulation.characterMove();
+                     break;
+                 case 0:
+                     System.out.println("Koniec symulacji");
+@@ -36,4 +45,4 @@
+             }
+         }
+     }
+-}
+\ No newline at end of file
++}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"50449fb7-f461-49bf-a63e-acba5781ae13\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/Character.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/Character.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/Forest.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/Forest.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/Simulation.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/Simulation.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"importingSettings\">\r\n      <MavenImportingSettings>\r\n        <option name=\"workspaceImportEnabled\" value=\"true\" />\r\n      </MavenImportingSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2QNMDDGRTyjMHtZDrgP5YVixspb\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"50449fb7-f461-49bf-a63e-acba5781ae13\" name=\"Changes\" comment=\"\" />\r\n      <created>1685189465817</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1685189465817</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 0bc1a8b454887875a34d475e5a0ab7fe1633d4a7)
++++ b/.idea/workspace.xml	(date 1685396594479)
+@@ -4,10 +4,10 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="50449fb7-f461-49bf-a63e-acba5781ae13" name="Changes" comment="">
++    <list default="true" id="50449fb7-f461-49bf-a63e-acba5781ae13" name="Changes" comment="Modyfikacja klasy Forest:&#10;-użytkownik może podawac szerokość i wysokość planszy lasu">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Character.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Forest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Forest.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Simulation.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -22,6 +22,11 @@
+     <option name="stateVersion" value="1" />
+   </component>
+   <component name="MavenImportPreferences">
++    <option name="generalSettings">
++      <MavenGeneralSettings>
++        <option name="useMavenConfig" value="true" />
++      </MavenGeneralSettings>
++    </option>
+     <option name="importingSettings">
+       <MavenImportingSettings>
+         <option name="workspaceImportEnabled" value="true" />
+@@ -29,9 +34,7 @@
+     </option>
+   </component>
+   <component name="ProjectId" id="2QNMDDGRTyjMHtZDrgP5YVixspb" />
+-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+-    <ConfirmationsSetting value="2" id="Add" />
+-  </component>
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+@@ -51,6 +54,45 @@
+       <option name="presentableId" value="Default" />
+       <updated>1685189465817</updated>
+     </task>
++    <task id="LOCAL-00001" summary="Wstępne zaimplementowanie menu ruchu postaci">
++      <created>1685287273128</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1685287273128</updated>
++    </task>
++    <task id="LOCAL-00002" summary="Drobna poprawka menu ruchu">
++      <created>1685287388897</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1685287388897</updated>
++    </task>
++    <task id="LOCAL-00003" summary="Modyfikacja klasy Forest:&#10;-użytkownik może podawac szerokość i wysokość planszy lasu">
++      <created>1685288539983</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1685288539983</updated>
++    </task>
++    <option name="localTasksCounter" value="4" />
+     <servers />
+   </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
++  </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="Wstępne zaimplementowanie menu ruchu postaci" />
++    <MESSAGE value="Drobna poprawka menu ruchu" />
++    <MESSAGE value="Modyfikacja klasy Forest:&#10;-użytkownik może podawac szerokość i wysokość planszy lasu" />
++    <option name="LAST_COMMIT_MESSAGE" value="Modyfikacja klasy Forest:&#10;-użytkownik może podawac szerokość i wysokość planszy lasu" />
++  </component>
+ </project>
+\ No newline at end of file
