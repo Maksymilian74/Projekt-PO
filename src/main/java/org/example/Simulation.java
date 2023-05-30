@@ -31,12 +31,22 @@ public class Simulation {
         this.characterMove = characterMove;
     }
 
+    char smiley = '\u263A';
+    char sadSmiley = '\u2639';
+
     public void placeCharacter(int x, int y) {
         if (x >= 0 && x < forest.getSize_x() && y >= 0 && y < forest.getSize_y()) {
             characterX = x;
             characterY = y;
             previousCell = forest.getForestMap().get(y).get(x);
-            forest.getForestMap().get(y).set(x, "*");
+
+            if (previousCell.equals("W")) {
+                System.out.println("Postać stanęła na wilku i jest teraz smutna, bo wilk zjadł wszystko, co miała w koszyku.");
+                forest.getForestMap().get(y).set(x, String.valueOf(sadSmiley));
+            } else {
+                forest.getForestMap().get(y).set(x, String.valueOf(smiley));
+            }
+
             System.out.println("Postać została umieszczona na pozycji (" + x + "," + y + ").");
         } else {
             System.out.println("Nieprawidłowa pozycja. Postać nie może zostać umieszczona na tej pozycji.");
@@ -84,7 +94,13 @@ public class Simulation {
             previousCell = newCell;
             characterX = newX;
             characterY = newY;
-            forest.getForestMap().get(newY).set(newX, "*");
+
+            if (newCell.equals("W")) {
+                System.out.println("Postać stanęła na wilku i jest teraz smutna, bo wilk zjadł wszystko, co miała w koszyku.");
+                forest.getForestMap().get(newY).set(newX, String.valueOf(sadSmiley));
+            } else {
+                forest.getForestMap().get(newY).set(newX, String.valueOf(smiley));
+            }
 
             if (newCell.equals("G")) {
                 System.out.println("Znalazłeś grzyba!");

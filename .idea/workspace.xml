@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="50449fb7-f461-49bf-a63e-acba5781ae13" name="Changes" comment="Modyfikacja klasy Forest">
+    <list default="true" id="50449fb7-f461-49bf-a63e-acba5781ae13" name="Changes" comment="Modyfikacja klasy Simulation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Simulation.java" afterDir="false" />
     </list>
@@ -56,11 +56,19 @@
       <option name="project" value="LOCAL" />
       <updated>1685398969916</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Modyfikacja klasy Simulation">
+      <created>1685441144532</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1685441144532</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Modyfikacja klasy Forest:&#10;-Maks coś zepsuł xD&#10;Modyfikacja klasy Main:&#10;- dodanie do menu opcji z umiejscowieniem bohatera i jego poruszaniem które odbywa się w klasie Simulation&#10;Modyfikacja klasy Simulation:&#10;- ruch postaci :) Wersja TESTOWA" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modyfikacja klasy Forest:&#10;-Maks coś zepsuł xD&#10;Modyfikacja klasy Main:&#10;- dodanie do menu opcji z umiejscowieniem bohatera i jego poruszaniem które odbywa się w klasie Simulation&#10;Modyfikacja klasy Simulation:&#10;- ruch postaci :) Wersja TESTOWA" />
+    <MESSAGE value="Modyfikacja klasy Simulation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modyfikacja klasy Simulation" />
   </component>
 </project>
