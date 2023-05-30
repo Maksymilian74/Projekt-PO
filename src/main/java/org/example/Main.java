@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
         Forest forest = new Forest();
         Simulation simulation = new Simulation(0, 0, forest);
@@ -29,6 +28,7 @@ public class Main {
                 case 2:
                     System.out.println("Aktualna mapa lasu:");
                     forest.displayForest();
+                    displayLegend();
                     break;
                 case 3:
                     simulation.placeCharacter(0, 0);
@@ -44,5 +44,24 @@ public class Main {
                     System.out.println("Nieprawidłowa opcja. Spróbuj ponownie.");
             }
         }
+    }
+
+    private static void displayLegend() {
+        System.out.println("\nLegenda:");
+        System.out.println("B - borówki");
+        System.out.println("J - jagody");
+        System.out.println("E - jeżyny");
+        System.out.println("A - maliny");
+        System.out.println("R - brzoza");
+        System.out.println("S - sosna");
+        System.out.println("D - dąb");
+        System.out.println("I - pieprznik");
+        System.out.println("M - maitake");
+        System.out.println("O - borowik");
+        System.out.println("P - podgrzybek");
+        System.out.println("C - muchomor czerwony");
+        System.out.println("T - muchomor sromotnikowy");
+        System.out.println("L - puste pole lasu");
+        System.out.println("W - wilk");
     }
 }
