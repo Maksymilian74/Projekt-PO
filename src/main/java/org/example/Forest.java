@@ -165,7 +165,7 @@ public class Forest {
             case "W":
                 return "\u001B[30m"; // Kolor dla wilka (czarny)
             default:
-                return "\u001B[0m"; // Domyślny kolor (reset)
+                return "\u001B[0m"; // Domyślny kolor (biały)
         }
     }
 }
