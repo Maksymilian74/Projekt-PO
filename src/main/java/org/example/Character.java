@@ -11,11 +11,7 @@ public class Character {
         position_x = 0;
         position_y = 0;
         previousCell = " ";
-        forest.setCell(position_x, position_y, "C");
-    }
-
-    public void move() {
-        // implementacja ruchu postaci
+        forest.setCell(position_x, position_y, "☺");
     }
 
     public void moveUp() {
@@ -23,7 +19,7 @@ public class Character {
             forest.setCell(position_x, position_y, previousCell);
             position_x--;
             previousCell = forest.getCell(position_x, position_y);
-            forest.setCell(position_x, position_y, "C");
+            forest.setCell(position_x, position_y, "☺");
         }
     }
 
@@ -32,7 +28,7 @@ public class Character {
             forest.setCell(position_x, position_y, previousCell);
             position_x++;
             previousCell = forest.getCell(position_x, position_y);
-            forest.setCell(position_x, position_y, "C");
+            forest.setCell(position_x, position_y, "☺");
         }
     }
 
@@ -41,7 +37,7 @@ public class Character {
             forest.setCell(position_x, position_y, previousCell);
             position_y--;
             previousCell = forest.getCell(position_x, position_y);
-            forest.setCell(position_x, position_y, "C");
+            forest.setCell(position_x, position_y, "☺");
         }
     }
 
@@ -50,7 +46,7 @@ public class Character {
             forest.setCell(position_x, position_y, previousCell);
             position_y++;
             previousCell = forest.getCell(position_x, position_y);
-            forest.setCell(position_x, position_y, "C");
+            forest.setCell(position_x, position_y, "☺");
         }
     }
 }

@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 
 public class Main extends JFrame {
 
-    private JButton moveButton;
     private JLabel[][] cells;
     private Forest forest;
     private Character character;
@@ -41,11 +40,21 @@ public class Main extends JFrame {
         JLabel sizeLabel = new JLabel("Enter forest size: ");
         JTextField sizeField = new JTextField(5);
         JButton generateButton = new JButton("Generate Forest");
+        //JButton placeCharacterButton = new JButton("Place Character");
+        JButton moveUpButton = new JButton("Move Up");
+        JButton moveDownButton = new JButton("Move Down");
+        JButton moveLeftButton = new JButton("Move Left");
+        JButton moveRightButton = new JButton("Move Right");
 
         // Dodawanie komponentów do panelu sterowania
         controlPanel.add(sizeLabel);
         controlPanel.add(sizeField);
         controlPanel.add(generateButton);
+        //controlPanel.add(placeCharacterButton);
+        controlPanel.add(moveUpButton);
+        controlPanel.add(moveDownButton);
+        controlPanel.add(moveLeftButton);
+        controlPanel.add(moveRightButton);
 
         // Ustalanie menedżera rozkładu dla panelu sterowania
         controlPanel.setLayout(new FlowLayout());
@@ -64,32 +73,75 @@ public class Main extends JFrame {
             }
         });
 
+        // Dodawanie słuchacza do przycisku "Place Character"
+        /*placeCharacterButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (character != null && cells[0][0] != null) {
+                    String icon = "☺"; // Uśmiech jako znak tekstowy
+                    cells[0][0].setText(icon); // Ustaw uśmiech jako tekst na komórce (0, 0)
+                    cells[0][0].setIcon(null); // Usuń ikonę z komórki (0, 0)
+                    cells[0][0].setHorizontalAlignment(SwingConstants.CENTER); // Wyśrodkuj tekst
+                }
+            }
+        });*/
+        // Dodawanie słuchacza do przycisku "Move Up"
+        moveUpButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (character != null) {
+                    character.moveUp();
+                    updateForestDisplay();
+                }
+            }
+        });
+
+        // Dodawanie słuchacza do przycisku "Move Down"
+        moveDownButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (character != null) {
+                    character.moveDown();
+                    updateForestDisplay();
+                }
+            }
+        });
+
+        // Dodawanie słuchacza do przycisku "Move Left"
+        moveLeftButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (character != null) {
+                    character.moveLeft();
+                    updateForestDisplay();
+                }
+            }
+        });
+
+        // Dodawanie słuchacza do przycisku "Move Right"
+        moveRightButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (character != null) {
+                    character.moveRight();
+                    updateForestDisplay();
+                }
+            }
+        });
+
         // Tworzenie panelu z komórkami lasu
         JPanel forestPanel = new JPanel();
-        forestPanel.setBackground(new Color(0, 100, 0)); // Ustawienie ciemnozielonego tła
+        forestPanel.setBackground(new Color(135, 237, 147, 255)); // Ustawienie ciemnozielonego tła
         forestPanel.setLayout(new GridLayout(1, 1));
 
         // Dodawanie panelu lasu do ramki
         add(forestPanel, BorderLayout.CENTER);
-
-        // Tworzenie przycisku "Move"
-        moveButton = new JButton("Move");
-
-        // Dodawanie słuchacza do przycisku "Move"
-        moveButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                character.move();
-                updateForestDisplay();
-            }
-        });
-
-        // Dodawanie przycisku "Move" do ramki
-        add(moveButton, BorderLayout.SOUTH);
     }
 
     private Color getColorForCell(String cell) {
         switch (cell) {
+            case "L":
+                return new Color(255, 255, 255, 255);
             case "B":
                 return Color.YELLOW; // główny bohater
             case "J":
