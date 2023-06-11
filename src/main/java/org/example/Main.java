@@ -18,6 +18,8 @@ public class Main extends JFrame {
         setLocationRelativeTo(null);
         initializeUI();
         pack();
+        ImageIcon icon = new ImageIcon(getClass().getClassLoader().getResource("images/forest.png"));
+        setIconImage(icon.getImage());
         setVisible(true);
     }
 
