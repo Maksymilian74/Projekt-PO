@@ -1,24 +1,56 @@
 package org.example;
 
-import java.util.HashMap;
-import java.util.Map;
+public class Character {
+    private int position_x;
+    private int position_y;
+    private String previousCell;
+    private Forest forest;
 
-
-public class Character extends Object {
-    private int id;
-    private Map<String, Integer> Basket;
-
-    public Character(int position_x, int position_y, int id, Map<String, Integer> Basket) {
-        super(position_x, position_y);
-        Basket = new HashMap<>();
-        this.id = id;
+    public Character(Forest forest) {
+        this.forest = forest;
+        position_x = 0;
+        position_y = 0;
+        previousCell = " ";
+        forest.setCell(position_x, position_y, "C");
     }
 
-    public int getId() {
-        return id;
+    public void move() {
+        // implementacja ruchu postaci
     }
 
-    public Map<String,Integer> getBasket() {
-        return Basket;
+    public void moveUp() {
+        if (position_x > 0) {
+            forest.setCell(position_x, position_y, previousCell);
+            position_x--;
+            previousCell = forest.getCell(position_x, position_y);
+            forest.setCell(position_x, position_y, "C");
+        }
+    }
+
+    public void moveDown() {
+        if (position_x < forest.getSize_x() - 1) {
+            forest.setCell(position_x, position_y, previousCell);
+            position_x++;
+            previousCell = forest.getCell(position_x, position_y);
+            forest.setCell(position_x, position_y, "C");
+        }
+    }
+
+    public void moveLeft() {
+        if (position_y > 0) {
+            forest.setCell(position_x, position_y, previousCell);
+            position_y--;
+            previousCell = forest.getCell(position_x, position_y);
+            forest.setCell(position_x, position_y, "C");
+        }
+    }
+
+    public void moveRight() {
+        if (position_y < forest.getSize_y() - 1) {
+            forest.setCell(position_x, position_y, previousCell);
+            position_y++;
+            previousCell = forest.getCell(position_x, position_y);
+            forest.setCell(position_x, position_y, "C");
+        }
     }
 }
