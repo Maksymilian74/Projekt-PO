@@ -10,7 +10,7 @@ public class Character {
         this.forest = forest;
         position_x = 0;
         position_y = 0;
-        previousCell = " ";
+        previousCell = "L";
         forest.setCell(position_x, position_y, "☺");
     }
 
@@ -24,7 +24,7 @@ public class Character {
     }
 
     public void moveDown() {
-        if (position_x < forest.getSize_x() - 1) {
+        if (position_x < forest.getSize_y() - 1) {
             forest.setCell(position_x, position_y, previousCell);
             position_x++;
             previousCell = forest.getCell(position_x, position_y);
