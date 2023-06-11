@@ -1,111 +1,149 @@
 package org.example;
 
-import java.util.Scanner;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Forest forest = new Forest();
-        Simulation simulation = new Simulation(0, 0, forest);
+public class Main extends JFrame {
 
-        while (true) {
-            System.out.println("\nWybierz opcję:");
-            System.out.println("1. Wygeneruj nową mapę lasu");
-            System.out.println("2. Wyświetl aktualną mapę lasu");
-            System.out.println("3. Ustaw postać na pozycji 0,0");
-            System.out.println("4. Porusz postacią");
-            System.out.println("0. Zakończ program");
+    private JButton moveButton;
+    private JLabel[][] cells;
+    private Forest forest;
+    private Character character;
 
-            int option = scanner.nextInt();
-            scanner.nextLine();
+    public Main() {
+        setTitle("Forest Simulation");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        initializeUI();
+        pack();
+        setVisible(true);
+    }
 
-            switch (option) {
-                case 1:
-                    forest.getForestSize();
-                    forest.generateForest();
-                    System.out.println("Mapa lasu została wygenerowana.");
-                    break;
-                case 2:
-                    System.out.println("Aktualna mapa lasu:");
-                    forest.displayForest();
-                    displayLegend();
-                    break;
-                case 3:
-                    simulation.placeCharacter(0, 0);
-                    System.out.println("Postać została umieszczona na pozycji 0,0.");
-                    break;
-                case 4:
-                    simulation.characterMove();
-                    break;
-                case 0:
-                    System.out.println("Koniec symulacji");
-                    return;
-                default:
-                    System.out.println("Nieprawidłowa opcja. Spróbuj ponownie.");
+    private void updateForestDisplay() {
+        int size = forest.getSize_x();
+
+        // Aktualizuj wyświetlanie komórek lasu
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                String symbol = forest.getCell(i, j);
+                Color color = getColorForCell(symbol);
+                cells[i][j].setText(symbol);
+                cells[i][j].setForeground(color);
             }
         }
     }
 
-    private static void displayLegend() {
-        Forest forest = new Forest();
-        System.out.println("\nLegenda:");
+    private void initializeUI() {
+        // Tworzenie panelu sterowania
+        JPanel controlPanel = new JPanel();
+        JLabel sizeLabel = new JLabel("Enter forest size: ");
+        JTextField sizeField = new JTextField(5);
+        JButton generateButton = new JButton("Generate Forest");
 
-        String colorCode;
+        // Dodawanie komponentów do panelu sterowania
+        controlPanel.add(sizeLabel);
+        controlPanel.add(sizeField);
+        controlPanel.add(generateButton);
 
-        System.out.println("╔════════════╦═══════════════════════╗");
-        System.out.println("║   Symbol   ║       Opis            ║");
-        System.out.println("╠════════════╬═══════════════════════╣");
+        // Ustalanie menedżera rozkładu dla panelu sterowania
+        controlPanel.setLayout(new FlowLayout());
 
-        System.out.println("║  \u263A        ║ główny bohater        ║");
+        // Dodawanie panelu sterowania do ramki
+        add(controlPanel, BorderLayout.NORTH);
 
-        colorCode = forest.getColorCode("B");
-        System.out.println("║ " + colorCode + "B" + "\u001B[0m" + "          ║ borówki               ║");
+        // Dodawanie słuchacza do przycisku "Generate Forest"
+        generateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int size = Integer.parseInt(sizeField.getText());
+                forest = new Forest(size);
+                character = new Character(forest);
+                generateForestCells(size);
+            }
+        });
 
-        colorCode = forest.getColorCode("J");
-        System.out.println("║ " + colorCode + "J" + "\u001B[0m" + "          ║ jagody                ║");
+        // Tworzenie panelu z komórkami lasu
+        JPanel forestPanel = new JPanel();
+        forestPanel.setBackground(new Color(0, 100, 0)); // Ustawienie ciemnozielonego tła
+        forestPanel.setLayout(new GridLayout(1, 1));
 
-        colorCode = forest.getColorCode("E");
-        System.out.println("║ " + colorCode + "E" + "\u001B[0m" + "          ║ jeżyny                ║");
+        // Dodawanie panelu lasu do ramki
+        add(forestPanel, BorderLayout.CENTER);
 
-        colorCode = forest.getColorCode("A");
-        System.out.println("║ " + colorCode + "A" + "\u001B[0m" + "          ║ maliny                ║");
+        // Tworzenie przycisku "Move"
+        moveButton = new JButton("Move");
 
-        colorCode = forest.getColorCode("R");
-        System.out.println("║ " + colorCode + "R" + "\u001B[0m" + "          ║ brzoza                ║");
+        // Dodawanie słuchacza do przycisku "Move"
+        moveButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                character.move();
+                updateForestDisplay();
+            }
+        });
 
-        colorCode = forest.getColorCode("S");
-        System.out.println("║ " + colorCode + "S" + "\u001B[0m" + "          ║ sosna                 ║");
-
-        colorCode = forest.getColorCode("D");
-        System.out.println("║ " + colorCode + "D" + "\u001B[0m" + "          ║ dąb                   ║");
-
-        colorCode = forest.getColorCode("I");
-        System.out.println("║ " + colorCode + "I" + "\u001B[0m" + "          ║ pieprznik             ║");
-
-        colorCode = forest.getColorCode("M");
-        System.out.println("║ " + colorCode + "M" + "\u001B[0m" + "          ║ maitake               ║");
-
-        colorCode = forest.getColorCode("O");
-        System.out.println("║ " + colorCode + "O" + "\u001B[0m" + "          ║ borowik               ║");
-
-        colorCode = forest.getColorCode("P");
-        System.out.println("║ " + colorCode + "P" + "\u001B[0m" + "          ║ podgrzybek            ║");
-
-        colorCode = forest.getColorCode("C");
-        System.out.println("║ " + colorCode + "C" + "\u001B[0m" + "          ║ muchomor czerwony     ║");
-
-        colorCode = forest.getColorCode("T");
-        System.out.println("║ " + colorCode + "T" + "\u001B[0m" + "          ║ muchomor sromotnikowy ║");
-
-        colorCode = forest.getColorCode("L");
-        System.out.println("║ " + colorCode + "L" + "\u001B[0m" + "          ║ puste pole lasu       ║");
-
-        colorCode = forest.getColorCode("W");
-        System.out.println("║ " + colorCode + "W" + "\u001B[0m" + "          ║ wilk                  ║");
-
-        System.out.println("╚════════════╩═══════════════════════╝");
+        // Dodawanie przycisku "Move" do ramki
+        add(moveButton, BorderLayout.SOUTH);
     }
 
+    private Color getColorForCell(String cell) {
+        switch (cell) {
+            case "B":
+                return Color.YELLOW; // główny bohater
+            case "J":
+                return Color.RED; // jagody
+            case "E":
+                return Color.YELLOW; // jeżyny
+            case "A":
+                return Color.MAGENTA; // maliny
+            case "R":
+                return Color.WHITE; // brzoza
+            case "S":
+                return Color.GREEN; // sosna
+            case "D":
+                return Color.YELLOW; // dąb
+            case "I":
+                return Color.CYAN; // pieprznik
+            case "M":
+                return Color.GREEN; // maitake
+            case "O":
+                return Color.YELLOW; // borowik
+            case "P":
+                return Color.YELLOW; // podgrzybek
+            case "C":
+                return Color.RED; // muchomor czerwony
+            default:
+                return Color.BLACK; // domyślny kolor
+        }
+    }
 
+    private void generateForestCells(int size) {
+        JPanel forestPanel = (JPanel) getContentPane().getComponent(1);
+        forestPanel.removeAll();
+        forestPanel.setLayout(new GridLayout(size, size));
+        cells = new JLabel[size][size];
 
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                cells[i][j] = new JLabel("", SwingConstants.CENTER);
+                cells[i][j].setFont(new Font(Font.MONOSPACED, Font.PLAIN, 20));
+                cells[i][j].setBorder(BorderFactory.createLineBorder(Color.BLACK));
+                cells[i][j].setText("L");
+                forestPanel.add(cells[i][j]);
+            }
+        }
+
+        updateForestDisplay();
+        pack();
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                new Main();
+            }
+        });
+    }
 }
