@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="50449fb7-f461-49bf-a63e-acba5781ae13" name="Changes" comment="Dodanie kolorów w legendzie w Main&#10;+ drobna zmiana w klasie Forest">
+    <list default="true" id="50449fb7-f461-49bf-a63e-acba5781ae13" name="Changes" comment="Dodanie wszystkich tworzonych obiektów do list">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Character.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Data.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Forest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Forest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Trees.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Trees.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +83,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685478985989</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Dodanie wszystkich tworzonych obiektów do list">
+      <created>1686600435364</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1686600435364</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -102,7 +109,8 @@
     <MESSAGE value="Modyfikacja klasy Simulation" />
     <MESSAGE value="Dodanie legendy w Mian" />
     <MESSAGE value="Dodanie kolorów w legendzie w Main&#10;+ drobna zmiana w klasie Forest" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodanie kolorów w legendzie w Main&#10;+ drobna zmiana w klasie Forest" />
+    <MESSAGE value="Dodanie wszystkich tworzonych obiektów do list" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dodanie wszystkich tworzonych obiektów do list" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
