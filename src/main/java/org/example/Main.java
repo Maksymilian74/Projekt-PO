@@ -219,6 +219,10 @@ public class Main extends JFrame {
         switch (cell) {
             case "☺":
                 return new Color(1, 1, 1);
+            case "☹":
+                return new Color(236, 144, 49);
+            case "\uD83D\uDE21":
+                return new Color(231, 14, 14);
             case "L":
                 return new Color(16, 117, 13);
             case "B":
