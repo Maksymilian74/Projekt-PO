@@ -108,6 +108,9 @@ public class Character {
             case "I":
                 nazwa = "Pieprznik";
                 break;
+            case "W":
+                Basket.clear();
+                break;
             default:
                 break;
         }

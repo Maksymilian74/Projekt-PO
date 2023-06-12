@@ -38,6 +38,7 @@ public class Main extends JFrame {
     }
 
     private void initializeUI() {
+        String tekst ="";
         JPanel mainPanel = new JPanel(new BorderLayout());
 
         JPanel sidePanel = new JPanel(new BorderLayout());
@@ -74,7 +75,7 @@ public class Main extends JFrame {
         moveLeftButton.setBounds(780,555,135,50);
         JButton moveRightButton = new JButton("Move Right");
         moveRightButton.setBounds(780,610,135,50);
-        JLabel infoLabel = new JLabel("Tutaj będą komunikaty ");
+        JLabel infoLabel = new JLabel(tekst);
         infoLabel.setBounds(780,645,230,100);
         infoLabel.setForeground(Color.red);
         infoLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 14));
@@ -168,9 +169,11 @@ public class Main extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int size = Integer.parseInt(sizeField.getText());
-                forest = new Forest(size);
-                character = new Character(forest);
-                generateForestCells(size);
+                if(size > 0 && size <= 26) {
+                    forest = new Forest(size);
+                    character = new Character(forest);
+                    generateForestCells(size);
+                }
             }
         });
 
