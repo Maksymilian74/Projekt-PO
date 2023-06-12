@@ -129,6 +129,9 @@ public class Character {
     }
 
     private void handleCell(String targetCell, int new_x, int new_y) {
+        if(targetCell.equals("M") || targetCell.equals("I") || targetCell.equals("O") || targetCell.equals("P") || targetCell.equals("C") || targetCell.equals("T")) {
+            targetCell = "L";
+        }
         forest.setCell(position_x, position_y, previousCell);
         position_x = new_x;
         position_y = new_y;
