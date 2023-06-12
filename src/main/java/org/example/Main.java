@@ -13,13 +13,14 @@ public class Main extends JFrame {
     private JPanel forestPanel;
 
     public Main() {
+
         setTitle("Forest Simulation");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        initializeUI();
-        pack();
         ImageIcon icon = new ImageIcon(getClass().getClassLoader().getResource("images/forest.png"));
         setIconImage(icon.getImage());
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        initializeUI();
+        setSize(1000,787);
+        setLocationRelativeTo(null);
         setVisible(true);
     }
 
@@ -37,15 +38,41 @@ public class Main extends JFrame {
     }
 
     private void initializeUI() {
-        JPanel controlPanel = new JPanel();
-        JLabel sizeLabel = new JLabel("Enter forest size: ");
-        JTextField sizeField = new JTextField(5);
-        JButton generateButton = new JButton("Generate Forest");
-        JButton moveUpButton = new JButton("Move Up");
-        JButton moveDownButton = new JButton("Move Down");
-        JButton moveLeftButton = new JButton("Move Left");
-        JButton moveRightButton = new JButton("Move Right");
+        JPanel mainPanel = new JPanel(new BorderLayout());
 
+        JPanel sidePanel = new JPanel(new BorderLayout());
+        sidePanel.setBounds(500,500,250,750);
+        sidePanel.setBackground(new Color(99, 99, 109));
+
+        forestPanel = new JPanel();
+        forestPanel.setBackground(new Color(135, 237, 147, 255));
+        forestPanel.setBounds(0,0,750,750);
+
+        JPanel controlPanel = new JPanel();//new GridBagLayout()
+        controlPanel.setBounds(750,300,250,450);
+        controlPanel.setSize(750,300);
+        controlPanel.setBackground(new Color(99, 99, 109));
+        controlPanel.setLayout(null);
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+
+        JLabel sizeLabel = new JLabel("Enter forest size: ");
+        sizeLabel.setBounds(780,300,200,60);
+        sizeLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 14));
+        JTextField sizeField = new JTextField(5);
+        sizeField.setBounds(780,350,150,60);
+        JButton generateButton = new JButton("Generate Forest");
+        generateButton.setBounds(780,415,150,60);
+        JButton moveUpButton = new JButton("Move Up");
+        moveUpButton.setBounds(780,480,150,60);
+        JButton moveDownButton = new JButton("Move Down");
+        moveDownButton.setBounds(780,545,150,60);
+        JButton moveLeftButton = new JButton("Move Left");
+        moveLeftButton.setBounds(780,610,150,60);
+        JButton moveRightButton = new JButton("Move Right");
+        moveRightButton.setBounds(780,675,150,60);
         controlPanel.add(sizeLabel);
         controlPanel.add(sizeField);
         controlPanel.add(generateButton);
@@ -54,17 +81,82 @@ public class Main extends JFrame {
         controlPanel.add(moveLeftButton);
         controlPanel.add(moveRightButton);
 
-        controlPanel.setLayout(new GridLayout(0, 1));
+        JPanel infoPanel = new JPanel(new GridLayout(0, 1));
+        infoPanel.setBounds(750,0,250,300);
+        infoPanel.setBackground(new Color(89, 89, 99));
+        infoPanel.setBorder(BorderFactory.createEmptyBorder(5, 20, 5, 10));
 
-        forestPanel = new JPanel();
-        forestPanel.setBackground(new Color(135, 237, 147, 255));
-        forestPanel.setLayout(new GridLayout(1, 1));
+        JLabel pusteLasLabel = new JLabel("Puste pole lasu: L");
+        pusteLasLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
 
-        JPanel mainPanel = new JPanel(new BorderLayout());
-        mainPanel.add(controlPanel, BorderLayout.EAST);
-        mainPanel.add(forestPanel, BorderLayout.CENTER);
+        JLabel bohaterLabel = new JLabel("Główny bohater: \u263A ");
+        bohaterLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
 
+        JLabel wilkLabel = new JLabel("Wilk: W");
+        wilkLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+
+        JLabel dabLabel = new JLabel("Dąb: D");
+        dabLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+
+        JLabel sosnaLabel = new JLabel("Sosna: S");
+        sosnaLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+
+        JLabel brzozaLabel = new JLabel("Brzoza: R");
+        brzozaLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+
+        JLabel pieprznikLabel = new JLabel("Pieprznik: I");
+        pieprznikLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+
+        JLabel maitakeLabel = new JLabel("Maitake: M");
+        maitakeLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+
+        JLabel borowikLabel = new JLabel("Borowik: O");
+        borowikLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+
+        JLabel podgrzybekLabel = new JLabel("Podgrzybek: P");
+        podgrzybekLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+
+        JLabel muchomorCzerwonyLabel = new JLabel("Muchomor czerwony: C");
+        muchomorCzerwonyLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+
+        JLabel muchomorSromotnikowyLabel = new JLabel("Muchomor sromotnikowy: T");
+        muchomorSromotnikowyLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+
+        JLabel borowkaLabel = new JLabel("Borówki: B");
+        borowkaLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+
+        JLabel jagodyLabel = new JLabel("Jagody: J");
+        jagodyLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+
+        JLabel jezynyLabel = new JLabel("Jeżyny: E");
+        jezynyLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+
+        JLabel malinyLabel = new JLabel("Maliny: A");
+        malinyLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+
+        infoPanel.add(pusteLasLabel);
+        infoPanel.add(bohaterLabel);
+        infoPanel.add(wilkLabel);
+        infoPanel.add(dabLabel);
+        infoPanel.add(sosnaLabel);
+        infoPanel.add(brzozaLabel);
+        infoPanel.add(maitakeLabel);
+        infoPanel.add(pieprznikLabel);
+        infoPanel.add(borowikLabel);
+        infoPanel.add(podgrzybekLabel);
+        infoPanel.add(muchomorCzerwonyLabel);
+        infoPanel.add(muchomorSromotnikowyLabel);
+        infoPanel.add(borowkaLabel);
+        infoPanel.add(jagodyLabel);
+        infoPanel.add(jezynyLabel);
+        infoPanel.add(malinyLabel);
+
+        mainPanel.add(forestPanel);
+        mainPanel.add(sidePanel);
+        sidePanel.add(infoPanel);
+        sidePanel.add(controlPanel,BorderLayout.CENTER);
         add(mainPanel);
+
 
         generateButton.addActionListener(new ActionListener() {
             @Override
@@ -157,6 +249,7 @@ public class Main extends JFrame {
         forestPanel.setLayout(new GridLayout(size, size));
         cells = new JLabel[size][size];
 
+
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 cells[i][j] = new JLabel("", SwingConstants.CENTER);
@@ -168,8 +261,6 @@ public class Main extends JFrame {
         }
 
         updateForestDisplay();
-        pack();
-        setExtendedState(JFrame.MAXIMIZED_BOTH); // Ustawienie okna na tryb pełnoekranowy
     }
 
     public static void main(String[] args) {

@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="50449fb7-f461-49bf-a63e-acba5781ae13" name="Changes" comment="Poprawiona wersja">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/forest.png" afterDir="false" />
+    <list default="true" id="50449fb7-f461-49bf-a63e-acba5781ae13" name="Changes" comment="Dodanie kolorów w legendzie w Main&#10;+ drobna zmiana w klasie Forest">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,11 +25,6 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="useMavenConfig" value="true" />
-      </MavenGeneralSettings>
-    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="workspaceImportEnabled" value="true" />
@@ -46,22 +39,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/g_sie/OneDrive/Pulpit/Projekt-PO",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\g_sie\OneDrive\Pulpit\Projekt-PO\src\main\resources\images" />
-      <recent name="C:\Users\g_sie\OneDrive\Pulpit\Projekt-PO\src\main\resources" />
-    </key>
-  </component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -99,35 +82,7 @@
       <option name="project" value="LOCAL" />
       <updated>1685478985989</updated>
     </task>
-    <task id="LOCAL-00005" summary="Ulepszenie legendy (tabelka)">
-      <created>1685479869020</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1685479869020</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Okienkowe">
-      <created>1686493041160</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1686493041160</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Kolory i ruch">
-      <created>1686497768043</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1686497768043</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Poprawiona wersja">
-      <created>1686503708685</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1686503708685</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -146,10 +101,6 @@
     <MESSAGE value="Modyfikacja klasy Simulation" />
     <MESSAGE value="Dodanie legendy w Mian" />
     <MESSAGE value="Dodanie kolorów w legendzie w Main&#10;+ drobna zmiana w klasie Forest" />
-    <MESSAGE value="Ulepszenie legendy (tabelka)" />
-    <MESSAGE value="Okienkowe" />
-    <MESSAGE value="Kolory i ruch" />
-    <MESSAGE value="Poprawiona wersja" />
-    <option name="LAST_COMMIT_MESSAGE" value="Poprawiona wersja" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dodanie kolorów w legendzie w Main&#10;+ drobna zmiana w klasie Forest" />
   </component>
 </project>
