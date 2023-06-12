@@ -5,9 +5,9 @@ import java.util.ArrayList;
 public class Data {
     public static ArrayList<Wolf> ListWolf;
     public ArrayList<Character> ListCharacter;
-    public ArrayList<Trees> ListTrees;
-    public ArrayList<Mushroom> ListMushroom;
-    public ArrayList<ForestFruits> ListFruits;
+    public static ArrayList<Trees> ListTrees;
+    public static ArrayList<Mushroom> ListMushroom;
+    public static ArrayList<ForestFruits> ListFruits;
 
     public Data() {
         ListWolf = new ArrayList<Wolf>();
