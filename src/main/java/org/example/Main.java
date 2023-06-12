@@ -7,10 +7,12 @@ import java.awt.event.ActionListener;
 
 public class Main extends JFrame {
 
+
     private JLabel[][] cells;
     private Forest forest;
     private Character character;
     private JPanel forestPanel;
+    private static JLabel infoLabel;
 
     public Main() {
 
@@ -22,6 +24,10 @@ public class Main extends JFrame {
         setSize(1000,787);
         setLocationRelativeTo(null);
         setVisible(true);
+    }
+
+    public static void updateInfoLabel(String tekst) {
+        infoLabel.setText(tekst);
     }
 
     private void updateForestDisplay() {
@@ -38,7 +44,6 @@ public class Main extends JFrame {
     }
 
     private void initializeUI() {
-        String tekst ="";
         JPanel mainPanel = new JPanel(new BorderLayout());
 
         JPanel sidePanel = new JPanel(new BorderLayout());
@@ -75,7 +80,7 @@ public class Main extends JFrame {
         moveLeftButton.setBounds(780,555,135,50);
         JButton moveRightButton = new JButton("Move Right");
         moveRightButton.setBounds(780,610,135,50);
-        JLabel infoLabel = new JLabel(tekst);
+        infoLabel = new JLabel();
         infoLabel.setBounds(780,645,230,100);
         infoLabel.setForeground(Color.red);
         infoLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 14));

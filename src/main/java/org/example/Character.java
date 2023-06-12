@@ -80,36 +80,47 @@ public class Character {
         switch (targetCell) {
             case "B":
                 nazwa = "Borówki";
+                Main.updateInfoLabel("");
                 break;
             case "J":
                 nazwa = "Jagody";
+                Main.updateInfoLabel("");
                 break;
             case "E":
                 nazwa = "Jeżyny";
+                Main.updateInfoLabel("");
                 break;
             case "A":
                 nazwa = "Maliny";
+                Main.updateInfoLabel("");
                 break;
             case "C":
                 nazwa = "Muchomor Czerwony";
+                Main.updateInfoLabel("Zebrałeś grzyba");
                 break;
             case "T":
                 nazwa = "Muchomor Sromotnikowy";
+                Main.updateInfoLabel("Zebrałeś grzyba");
                 break;
             case "P":
                 nazwa = "Podgrzybek";
+                Main.updateInfoLabel("Zebrałeś grzyba");
                 break;
             case "O":
                 nazwa = "Borowik";
+                Main.updateInfoLabel("Zebrałeś grzyba");
                 break;
             case "M":
                 nazwa = "Maitake";
+                Main.updateInfoLabel("Zebrałeś grzyba");
                 break;
             case "I":
                 nazwa = "Pieprznik";
+                Main.updateInfoLabel("Zebrałeś grzyba");
                 break;
             case "W":
                 Basket.clear();
+                Main.updateInfoLabel("Wilk zjadł ci wszystko");
                 break;
             default:
                 break;
