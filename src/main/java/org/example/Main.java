@@ -42,16 +42,17 @@ public class Main extends JFrame {
 
         JPanel sidePanel = new JPanel(new BorderLayout());
         sidePanel.setBounds(500,500,250,750);
-        sidePanel.setBackground(new Color(99, 99, 109));
+        sidePanel.setBackground(new Color(89, 89, 99));
 
         forestPanel = new JPanel();
+        //forestPanel.setBackground(new Color(64, 207, 78));
         forestPanel.setBackground(new Color(135, 237, 147, 255));
         forestPanel.setBounds(0,0,750,750);
 
         JPanel controlPanel = new JPanel();//new GridBagLayout()
         controlPanel.setBounds(750,300,250,450);
         controlPanel.setSize(750,300);
-        controlPanel.setBackground(new Color(99, 99, 109));
+        controlPanel.setBackground(new Color(89, 89, 99));
         controlPanel.setLayout(null);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.BOTH;
@@ -60,19 +61,23 @@ public class Main extends JFrame {
 
         JLabel sizeLabel = new JLabel("Enter forest size: ");
         sizeLabel.setBounds(780,300,200,60);
-        sizeLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 14));
-        JTextField sizeField = new JTextField(5);
-        sizeField.setBounds(780,350,150,60);
+        sizeLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 16));
+        JTextField sizeField = new JTextField(4);
+        sizeField.setBounds(780,345,100,40);
         JButton generateButton = new JButton("Generate Forest");
-        generateButton.setBounds(780,415,150,60);
+        generateButton.setBounds(780,390,135,50);
         JButton moveUpButton = new JButton("Move Up");
-        moveUpButton.setBounds(780,480,150,60);
+        moveUpButton.setBounds(780,445,135,50);
         JButton moveDownButton = new JButton("Move Down");
-        moveDownButton.setBounds(780,545,150,60);
+        moveDownButton.setBounds(780,500,135,50);
         JButton moveLeftButton = new JButton("Move Left");
-        moveLeftButton.setBounds(780,610,150,60);
+        moveLeftButton.setBounds(780,555,135,50);
         JButton moveRightButton = new JButton("Move Right");
-        moveRightButton.setBounds(780,675,150,60);
+        moveRightButton.setBounds(780,610,135,50);
+        JLabel infoLabel = new JLabel("Tutaj będą komunikaty ");
+        infoLabel.setBounds(780,645,230,100);
+        infoLabel.setForeground(Color.red);
+        infoLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 14));
         controlPanel.add(sizeLabel);
         controlPanel.add(sizeField);
         controlPanel.add(generateButton);
@@ -80,6 +85,7 @@ public class Main extends JFrame {
         controlPanel.add(moveDownButton);
         controlPanel.add(moveLeftButton);
         controlPanel.add(moveRightButton);
+        controlPanel.add(infoLabel);
 
         JPanel infoPanel = new JPanel(new GridLayout(0, 1));
         infoPanel.setBounds(750,0,250,300);
@@ -87,52 +93,52 @@ public class Main extends JFrame {
         infoPanel.setBorder(BorderFactory.createEmptyBorder(5, 20, 5, 10));
 
         JLabel pusteLasLabel = new JLabel("Puste pole lasu: L");
-        pusteLasLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+        pusteLasLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 14));
 
         JLabel bohaterLabel = new JLabel("Główny bohater: \u263A ");
-        bohaterLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+        bohaterLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 14));
 
         JLabel wilkLabel = new JLabel("Wilk: W");
-        wilkLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+        wilkLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 14));
 
         JLabel dabLabel = new JLabel("Dąb: D");
-        dabLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+        dabLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 14));
 
         JLabel sosnaLabel = new JLabel("Sosna: S");
-        sosnaLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+        sosnaLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 14));
 
         JLabel brzozaLabel = new JLabel("Brzoza: R");
-        brzozaLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+        brzozaLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 14));
 
         JLabel pieprznikLabel = new JLabel("Pieprznik: I");
-        pieprznikLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+        pieprznikLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 14));
 
         JLabel maitakeLabel = new JLabel("Maitake: M");
-        maitakeLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+        maitakeLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 14));
 
         JLabel borowikLabel = new JLabel("Borowik: O");
-        borowikLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+        borowikLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 14));
 
         JLabel podgrzybekLabel = new JLabel("Podgrzybek: P");
-        podgrzybekLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+        podgrzybekLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 14));
 
         JLabel muchomorCzerwonyLabel = new JLabel("Muchomor czerwony: C");
-        muchomorCzerwonyLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+        muchomorCzerwonyLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 14));
 
         JLabel muchomorSromotnikowyLabel = new JLabel("Muchomor sromotnikowy: T");
-        muchomorSromotnikowyLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+        muchomorSromotnikowyLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 14));
 
         JLabel borowkaLabel = new JLabel("Borówki: B");
-        borowkaLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+        borowkaLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 14));
 
         JLabel jagodyLabel = new JLabel("Jagody: J");
-        jagodyLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+        jagodyLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 14));
 
         JLabel jezynyLabel = new JLabel("Jeżyny: E");
-        jezynyLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+        jezynyLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 14));
 
         JLabel malinyLabel = new JLabel("Maliny: A");
-        malinyLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+        malinyLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 14));
 
         infoPanel.add(pusteLasLabel);
         infoPanel.add(bohaterLabel);
@@ -212,35 +218,39 @@ public class Main extends JFrame {
     private Color getColorForCell(String cell) {
         switch (cell) {
             case "☺":
-                return new Color(76, 64, 65, 255);
+                return new Color(1, 1, 1);
             case "L":
-                return new Color(11, 170, 11, 255);
+                return new Color(16, 117, 13);
             case "B":
-                return Color.YELLOW;
+                return new Color(48, 7, 181);
             case "J":
-                return Color.RED;
+                return new Color(35, 10, 115);
             case "E":
-                return Color.YELLOW;
+                return new Color(50, 36, 97);
             case "A":
-                return Color.MAGENTA;
+                return new Color(161, 26, 104);
             case "R":
-                return Color.WHITE;
+                return new Color(169, 166, 179);
             case "S":
-                return Color.GREEN;
+                return new Color(84, 54, 40);
             case "D":
-                return Color.YELLOW;
+                return new Color(64, 36, 24);
             case "I":
-                return Color.CYAN;
+                return new Color(207, 197, 12);
             case "M":
-                return Color.GREEN;
+                return new Color(128, 114, 107);
             case "O":
-                return Color.YELLOW;
+                return new Color(112, 62, 35);
             case "P":
-                return Color.YELLOW;
+                return new Color(84, 46, 26);
             case "C":
-                return Color.RED;
+                return new Color(212, 11, 11);
+            case "T":
+                return new Color(76, 130, 14);
+            case "W":
+                return new Color(72, 74, 69);
             default:
-                return Color.BLACK;
+                return new Color(255, 255, 255);
         }
     }
 
@@ -254,7 +264,7 @@ public class Main extends JFrame {
             for (int j = 0; j < size; j++) {
                 cells[i][j] = new JLabel("", SwingConstants.CENTER);
                 cells[i][j].setFont(new Font(Font.MONOSPACED, Font.BOLD, 25));
-                cells[i][j].setBorder(BorderFactory.createLineBorder(new Color(255, 255, 255, 255)));
+                cells[i][j].setBorder(BorderFactory.createLineBorder(new Color(235, 240, 235)));
                 cells[i][j].setText("L");
                 forestPanel.add(cells[i][j]);
             }
