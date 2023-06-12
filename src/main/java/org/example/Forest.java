@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class Forest {
     private String[][] cells;
+    private Data data;
 
     public Forest(int size) {
         cells = new String[size][size];
@@ -27,8 +28,10 @@ public class Forest {
     }
 
     public void generateForest() {
+        data = new Data();
         cells = new String[getSize_x()][getSize_y()];
         Random random = new Random();
+        int wolfId=0;
         for (int x = 0; x < getSize_x(); x++) {
             for (int y = 0; y < getSize_y(); y++) {
                 double randomNumber = random.nextDouble();
@@ -84,7 +87,9 @@ public class Forest {
                         }
                     } else if (randomNumber >= 0.995) {
                         cells[x][y] = "W";
-
+                        Wolf wolf = new Wolf(x,y,wolfId,true);
+                        Data.ListWolf.add(wolf);
+                        wolfId++;
                     }
                 } else {
                     // Obszar niebrzegowy lasu
@@ -151,10 +156,13 @@ public class Forest {
                         }
                     } else if (randomNumber >= 0.995) {
                         cells[x][y] = "W";
-
+                        Wolf wolf = new Wolf(x,y,wolfId,true);
+                        Data.ListWolf.add(wolf);
+                        wolfId++;
                     }
                 }
             }
         }
+        //System.out.println(Data.ListWolf);
     }
 }
