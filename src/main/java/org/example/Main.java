@@ -175,9 +175,12 @@ public class Main extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 int size = Integer.parseInt(sizeField.getText());
                 if(size > 0 && size <= 26) {
+                    Main.updateInfoLabel("");
                     forest = new Forest(size);
                     character = new Character(forest);
                     generateForestCells(size);
+                } else {
+                    Main.updateInfoLabel("Podaj liczbę (0;26]");
                 }
             }
         });

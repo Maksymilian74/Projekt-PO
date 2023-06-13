@@ -30,6 +30,7 @@ public class Character {
                 collectItem(targetCell, position_x - 1, position_y);
                 handleCell(targetCell, position_x - 1, position_y);
             } else {
+                Main.updateInfoLabel("Nie możesz tam iść");
                 forest.setCell(position_x, position_y, "\uD83D\uDE21");
             }
         }
@@ -45,6 +46,7 @@ public class Character {
                 collectItem(targetCell, position_x + 1, position_y);
                 handleCell(targetCell, position_x + 1, position_y);
             } else {
+                Main.updateInfoLabel("Nie możesz tam iść");
                 forest.setCell(position_x, position_y, "\uD83D\uDE21");
             }
         }
@@ -57,6 +59,7 @@ public class Character {
                 collectItem(targetCell, position_x, position_y - 1);
                 handleCell(targetCell, position_x, position_y - 1);
             } else {
+                Main.updateInfoLabel("Nie możesz tam iść");
                 forest.setCell(position_x, position_y, "\uD83D\uDE21");
             }
         }
@@ -69,6 +72,7 @@ public class Character {
                 collectItem(targetCell, position_x, position_y + 1);
                 handleCell(targetCell, position_x, position_y + 1);
             } else {
+                Main.updateInfoLabel("Nie możesz tam iść");
                 forest.setCell(position_x, position_y, "\uD83D\uDE21");
             }
         }
@@ -122,6 +126,9 @@ public class Character {
                 Basket.clear();
                 Main.updateInfoLabel("Wilk zjadł ci wszystko");
                 break;
+            case "L":
+                Main.updateInfoLabel("");
+                break;
             default:
                 break;
         }
@@ -138,8 +145,9 @@ public class Character {
                 }
 
                 if(ifCollected == true) {//jak krzak jest zebrany
-                    //komunikat
+                    Main.updateInfoLabel("Krzak był już zebrany");
                 } else { //jak krzak nie jest zebrany
+                    Main.updateInfoLabel("Zebrałeś z owoc");
                     if (Basket.containsKey(nazwa)) {
                         int count = Basket.get(nazwa);
                         Basket.put(nazwa, count + 1);
