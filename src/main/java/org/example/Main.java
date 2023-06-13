@@ -34,7 +34,7 @@ public class Main extends JFrame {
     public static void endWindow(Character character) {
         JFrame frame = new JFrame();
         frame.setVisible(true);
-        frame.setSize(800, 600); // Zwiększenie rozmiaru okna
+        //frame.setSize(800, 600); // Zwiększenie rozmiaru okna
         frame.setLocationRelativeTo(null);
         frame.setBackground(new Color(89, 89, 99));
 
@@ -52,8 +52,9 @@ public class Main extends JFrame {
 
         JLabel basketLabel = new JLabel();
         basketLabel.setFont(new Font("Arial", Font.PLAIN, 20));
-
+        basketLabel.setBorder(BorderFactory.createEmptyBorder(5, 20, 15, 20));
         StringBuilder basketText = new StringBuilder("<html>");
+        basketText.append("Zawartość koszyka: ").append("<br>");
         for (Map.Entry<String, Integer> entry : basket.entrySet()) {
             String itemName = entry.getKey();
             int itemCount = entry.getValue();
