@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Map;
 
 public class Main extends JFrame {
 
@@ -30,18 +31,41 @@ public class Main extends JFrame {
         infoLabel.setText(tekst);
     }
 
-    public static void endWindow() {
+    public static void endWindow(Character character) {
         JFrame frame = new JFrame();
         frame.setVisible(true);
-        frame.setSize(500,500);
+        frame.setSize(800, 600); // Zwiększenie rozmiaru okna
         frame.setLocationRelativeTo(null);
         frame.setBackground(new Color(89, 89, 99));
-        JPanel endPanel = new JPanel();
+
+        JPanel endPanel = new JPanel(new BorderLayout());
         endPanel.setBackground(new Color(109, 109, 119));
         frame.add(endPanel);
-        frame.setTitle("Podsumowanie");
-    }
 
+        frame.setTitle("Podsumowanie");
+
+        JPanel contentPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        contentPanel.setBackground(new Color(109, 109, 119));
+        endPanel.add(contentPanel, BorderLayout.CENTER);
+
+        Map<String, Integer> basket = character.getBasket();
+
+        JLabel basketLabel = new JLabel();
+        basketLabel.setFont(new Font("Arial", Font.PLAIN, 20));
+
+        StringBuilder basketText = new StringBuilder("<html>");
+        for (Map.Entry<String, Integer> entry : basket.entrySet()) {
+            String itemName = entry.getKey();
+            int itemCount = entry.getValue();
+            basketText.append(itemName).append(": ").append(itemCount).append("<br>");
+        }
+        basketText.append("</html>");
+        basketLabel.setText(basketText.toString());
+
+        contentPanel.add(basketLabel);
+
+        frame.pack();
+    }
     private void updateForestDisplay() {
         int size = forest.getSize_x();
 

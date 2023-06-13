@@ -19,7 +19,7 @@ public class Character {
         Basket = new HashMap<>();
     }
 
-    public Map<String,Integer> getBasket() {
+    public Map<String, Integer> getBasket() {
         return Basket;
     }
 
@@ -33,9 +33,8 @@ public class Character {
                 Main.updateInfoLabel("Nie możesz tam iść");
                 forest.setCell(position_x, position_y, "\uD83D\uDE21");
             }
-        }
-        else {
-            Main.endWindow();
+        } else {
+            endWindow();
         }
     }
 
@@ -50,7 +49,7 @@ public class Character {
                 forest.setCell(position_x, position_y, "\uD83D\uDE21");
             }
         } else {
-            Main.endWindow();
+            endWindow();
         }
     }
 
@@ -65,7 +64,7 @@ public class Character {
                 forest.setCell(position_x, position_y, "\uD83D\uDE21");
             }
         } else {
-            Main.endWindow();
+            endWindow();
         }
     }
 
@@ -80,12 +79,12 @@ public class Character {
                 forest.setCell(position_x, position_y, "\uD83D\uDE21");
             }
         } else {
-            Main.endWindow();
+            endWindow();
         }
     }
 
-    private void collectItem(String targetCell,int new_x, int new_y) {
-        String nazwa="";
+    private void collectItem(String targetCell, int new_x, int new_y) {
+        String nazwa = "";
         boolean ifCollected = false;
         switch (targetCell) {
             case "B":
@@ -139,18 +138,18 @@ public class Character {
                 break;
         }
 
-        if(!targetCell.equals("L") && !targetCell.equals("W")) {
+        if (!targetCell.equals("L") && !targetCell.equals("W")) {
             if (targetCell.equals("B") || targetCell.equals("J") || targetCell.equals("E") || targetCell.equals("A")) {
                 //sprawdzenie czy jest zebrany
-                for(ForestFruits forestFruits: Data.ListFruits) {
-                    if(forestFruits.getPosition_x() == new_x && forestFruits.getPosition_y() == new_y) {
+                for (ForestFruits forestFruits : Data.ListFruits) {
+                    if (forestFruits.getPosition_x() == new_x && forestFruits.getPosition_y() == new_y) {
                         ifCollected = forestFruits.getIfCollected();
                         break;
                     }
 
                 }
 
-                if(ifCollected == true) {//jak krzak jest zebrany
+                if (ifCollected == true) {//jak krzak jest zebrany
                     Main.updateInfoLabel("Krzak był już zebrany");
                 } else { //jak krzak nie jest zebrany
                     Main.updateInfoLabel("Zebrałeś z owoc");
@@ -180,11 +179,11 @@ public class Character {
     }
 
     private void handleCell(String targetCell, int new_x, int new_y) {
-        if(targetCell.equals("M") || targetCell.equals("I") || targetCell.equals("O") || targetCell.equals("P") || targetCell.equals("C") || targetCell.equals("T")) {
+        if (targetCell.equals("M") || targetCell.equals("I") || targetCell.equals("O") || targetCell.equals("P") || targetCell.equals("C") || targetCell.equals("T")) {
             targetCell = "L";
         } else if (targetCell.equals("B") || targetCell.equals("J") || targetCell.equals("E") || targetCell.equals("A")) {
-            for(ForestFruits forestFruits: Data.ListFruits) {
-                if(forestFruits.getPosition_x() == new_x && forestFruits.getPosition_y() == new_y) {
+            for (ForestFruits forestFruits : Data.ListFruits) {
+                if (forestFruits.getPosition_x() == new_x && forestFruits.getPosition_y() == new_y) {
                     forestFruits.setIfCollected(true);
                     break;
                 }
@@ -199,5 +198,9 @@ public class Character {
         if (targetCell.equals("W")) {
             forest.setCell(position_x, position_y, "☹");
         }
+    }
+
+    private void endWindow() {
+        Main.endWindow(this);
     }
 }
