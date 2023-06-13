@@ -34,9 +34,9 @@ public class Character {
                 forest.setCell(position_x, position_y, "\uD83D\uDE21");
             }
         }
-        /*else {
-
-        }*/
+        else {
+            Main.endWindow();
+        }
     }
 
     public void moveDown() {
@@ -49,6 +49,8 @@ public class Character {
                 Main.updateInfoLabel("Nie możesz tam iść");
                 forest.setCell(position_x, position_y, "\uD83D\uDE21");
             }
+        } else {
+            Main.endWindow();
         }
     }
 
@@ -62,6 +64,8 @@ public class Character {
                 Main.updateInfoLabel("Nie możesz tam iść");
                 forest.setCell(position_x, position_y, "\uD83D\uDE21");
             }
+        } else {
+            Main.endWindow();
         }
     }
 
@@ -75,6 +79,8 @@ public class Character {
                 Main.updateInfoLabel("Nie możesz tam iść");
                 forest.setCell(position_x, position_y, "\uD83D\uDE21");
             }
+        } else {
+            Main.endWindow();
         }
     }
 

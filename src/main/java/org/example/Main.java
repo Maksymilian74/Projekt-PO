@@ -30,6 +30,18 @@ public class Main extends JFrame {
         infoLabel.setText(tekst);
     }
 
+    public static void endWindow() {
+        JFrame frame = new JFrame();
+        frame.setVisible(true);
+        frame.setSize(500,500);
+        frame.setLocationRelativeTo(null);
+        frame.setBackground(new Color(89, 89, 99));
+        JPanel endPanel = new JPanel();
+        endPanel.setBackground(new Color(109, 109, 119));
+        frame.add(endPanel);
+        frame.setTitle("Podsumowanie");
+    }
+
     private void updateForestDisplay() {
         int size = forest.getSize_x();
 
