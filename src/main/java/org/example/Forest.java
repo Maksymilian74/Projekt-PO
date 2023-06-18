@@ -1,171 +1,217 @@
 package org.example;
 
 import java.util.Random;
-import java.util.Scanner;
-import java.util.ArrayList;
 
 public class Forest {
-    private int size_x;
-    private int size_y;
-    private Data Data;
-    private ArrayList<ArrayList<String>> forestMap;
-    public Forest() {
-        this.size_x = size_x;
-        this.size_y = size_y;
-        Data = new Data();
-        this.forestMap = new ArrayList<>();
+    private String[][] cells;
+    private Data data;
+
+    public Forest(int size) {
+        cells = new String[size][size];
+        generateForest();
     }
 
     public int getSize_x() {
-        return size_x;
-    }
-
-    public void setSize_x(int size_x) {
-        this.size_x = size_x;
+        return cells.length;
     }
 
     public int getSize_y() {
-        return size_y;
+        return cells[0].length;
     }
 
-    public void setSize_y(int size_y) {
-        this.size_y = size_y;
+    public String getCell(int x, int y) {
+        return cells[x][y];
     }
 
-    public ArrayList<ArrayList<String>> getForestMap() {
-        return forestMap;
+    public void setCell(int x, int y, String value) {
+        cells[x][y] = value;
     }
 
-    public void getForestSize() {
-        Scanner scanner = new Scanner(System.in);
-        int width, height;
-
-        while (true) {
-            System.out.println("Podaj szerokość lasu (do 50): ");
-            width = scanner.nextInt();
-            if (width <= 50)
-                break;
-            else
-                System.out.println("Nieprawidłowa szerokość. Podaj wartość do 50.");
-        }
-
-        while (true) {
-            System.out.println("Podaj wysokość lasu (do 50): ");
-            height = scanner.nextInt();
-            if (height <= 50)
-                break;
-            else
-                System.out.println("Nieprawidłowa wysokość. Podaj wartość do 50.");
-        }
-
-        setSize_x(width);
-        setSize_y(height);
-    }
     public void generateForest() {
-        forestMap.clear();
+        data = new Data();
+        cells = new String[getSize_x()][getSize_y()];
         Random random = new Random();
-        for (int y = 0; y < getSize_y(); y++) {
-            ArrayList<String> row = new ArrayList<>();
-            for (int x = 0; x < getSize_x(); x++) {
-                //tutaj trzeba zrobić mechanizm generowania poszczególnych obiektów w lesie
+        int wolfId = 0;
+        int fruitId = 0;
+        int treesId = 0;
+        int mushroomId = 0;
+        for (int x = 0; x < getSize_x(); x++) {
+            for (int y = 0; y < getSize_y(); y++) {
                 double randomNumber = random.nextDouble();
 
-                if ((x == 0) || (x == getSize_x() - 1) || (y == 0) || (y == getSize_y() - 1)) {
-                    //1 przypadek obrzeża lasu
+                if ((x == 0 && y == 0) || (x == getSize_x() - 1) || (y == getSize_y() - 1)) {
+                    // Obszar brzegowy lasu
                     if (randomNumber < 0.25 || (randomNumber >= 0.7 && randomNumber < 0.995)) {
-                        row.add("L");
+                        {
+                            cells[x][y] = "L";
+
+                        }
                     } else if ((randomNumber >= 0.25 && randomNumber < 0.4) || (randomNumber >= 0.5 && randomNumber < 0.65)) {
-                        if((randomNumber >= 0.25 && randomNumber < 0.3))
-                        row.add("I");
-                        else if(randomNumber >= 0.3 && randomNumber < 0.35)
-                            row.add("M");
-                        else if(randomNumber >= 0.35 && randomNumber < 0.4)
-                            row.add("O");
-                        else if(randomNumber >= 0.5 && randomNumber < 0.55)
-                            row.add("P");
-                        else if(randomNumber >= 0.55 && randomNumber < 0.6)
-                            row.add("C");
-                        else if(randomNumber >= 0.6 && randomNumber < 0.65)
-                            row.add("T");
+                        if (randomNumber >= 0.25 && randomNumber < 0.3) {
+                            cells[x][y] = "I";
+                            HealingMushrooms healingMushrooms = new HealingMushrooms(x,y,mushroomId,false,"Pieprznik","Antibacterial");
+                            Data.ListMushroom.add(healingMushrooms);
+                            mushroomId++;
+                        }
+                        else if (randomNumber >= 0.3 && randomNumber < 0.35) {
+                            cells[x][y] = "M";
+                            HealingMushrooms healingMushrooms = new HealingMushrooms(x,y,mushroomId,false,"Maitake","Mood improvement");
+                            Data.ListMushroom.add(healingMushrooms);
+                            mushroomId++;
+                        }
+                        else if (randomNumber >= 0.35 && randomNumber < 0.4) {
+                            cells[x][y] = "O";
+                            EatableMushrooms eatableMushrooms = new EatableMushrooms(x,y,mushroomId,false,"Borowik","Taste improvement");
+                            Data.ListMushroom.add(eatableMushrooms);
+                            mushroomId++;
+                        }
+                        else if (randomNumber >= 0.5 && randomNumber < 0.55) {
+                            cells[x][y] = "P";
+                            EatableMushrooms eatableMushrooms = new EatableMushrooms(x,y,mushroomId,false,"Podgrzybek","Stops hunger");
+                            Data.ListMushroom.add(eatableMushrooms);
+                            mushroomId++;
+                        }
+                        else if (randomNumber >= 0.55 && randomNumber < 0.6) {
+                            cells[x][y] = "C";
+                            ToxicMushrooms toxicMushrooms = new ToxicMushrooms(x,y,mushroomId,false,"Muchomor czerwony","Stomachache");
+                            Data.ListMushroom.add(toxicMushrooms);
+                            mushroomId++;
+                        }
+                        else if (randomNumber >= 0.6 && randomNumber < 0.65) {
+                            cells[x][y] = "T";
+                            ToxicMushrooms toxicMushrooms = new ToxicMushrooms(x,y,mushroomId,false,"Muchomor stomotnikowy","Death");
+                            Data.ListMushroom.add(toxicMushrooms);
+                            mushroomId++;
+                        }
                     } else if ((randomNumber >= 0.4 && randomNumber < 0.5) || (randomNumber >= 0.65 && randomNumber < 0.7)) {
-                        if(randomNumber >= 0.4 && randomNumber < 0.45)
-                        row.add("E");
-                        else if(randomNumber >= 0.45 && randomNumber < 0.5)
-                            row.add("J");
-                        else if(randomNumber >= 0.65 && randomNumber < 0.68)
-                            row.add("B");
-                        else if(randomNumber >= 0.68 && randomNumber < 0.7)
-                            row.add("A");
-                    } else if(randomNumber >= 0.995){
-                        row.add("W");
+                        if (randomNumber >= 0.4 && randomNumber < 0.45) {
+                            cells[x][y] = "E";
+                            ForestFruits forestFruits = new ForestFruits(x,y,fruitId,"Jezyny",0,false,"Stops hunger");
+                            Data.ListFruits.add(forestFruits);
+                            fruitId++;
+                        }
+                        else if (randomNumber >= 0.45 && randomNumber < 0.5) {
+                            cells[x][y] = "J";
+                            ForestFruits forestFruits = new ForestFruits(x,y,fruitId,"Jagody",1,false,"Stops hunger");
+                            Data.ListFruits.add(forestFruits);
+                            fruitId++;
+                        }
+                        else if (randomNumber >= 0.65 && randomNumber < 0.68) {
+                            cells[x][y] = "B";
+                            ForestFruits forestFruits = new ForestFruits(x,y,fruitId,"Borowki",2,false,"Stops hunger");
+                            Data.ListFruits.add(forestFruits);
+                            fruitId++;
+                        }
+                        else if (randomNumber >= 0.68 && randomNumber < 0.7) {
+                            cells[x][y] = "A";
+                            ForestFruits forestFruits = new ForestFruits(x,y,fruitId,"Maliny",3,false,"Stops hunger");
+                            Data.ListFruits.add(forestFruits);
+                            fruitId++;
+                        }
+                    } else if (randomNumber >= 0.995) {
+                        cells[x][y] = "W";
+                        Wolf wolf = new Wolf(x,y,wolfId,true);
+                        Data.ListWolf.add(wolf);
+                        wolfId++;
                     }
-
                 } else {
-                    //2 przypadek nie obrzeża lasu
-                    if (randomNumber < 0.25 || (randomNumber >=0.85 && randomNumber <0.995)) {
-                        row.add("L");
-                    } else if ((randomNumber >= 0.25 && randomNumber < 0.45) || (randomNumber >= 0.55 && randomNumber < 0.65)) {
-                        if((randomNumber >= 0.25 && randomNumber < 0.3))
-                            row.add("I");
-                        else if(randomNumber >= 0.3 && randomNumber < 0.35)
-                            row.add("M");
-                        else if(randomNumber >= 0.35 && randomNumber < 0.4)
-                            row.add("O");
-                        else if(randomNumber >= 0.4 && randomNumber < 0.45)
-                            row.add("P");
-                        else if(randomNumber >= 0.55 && randomNumber < 0.6)
-                            row.add("C");
-                        else if(randomNumber >= 0.6 && randomNumber < 0.65)
-                            row.add("T");
-                    } else if ((randomNumber >= 0.45 && randomNumber < 0.5) || (randomNumber >= 0.65 && randomNumber < 0.8)) {
-                        if(randomNumber >= 0.45 && randomNumber < 0.5)
-                            row.add("E");
-                        else if(randomNumber >= 0.65 && randomNumber < 0.70)
-                            row.add("J");
-                        else if(randomNumber >= 0.7 && randomNumber < 0.75)
-                            row.add("B");
-                        else if(randomNumber >= 0.75 && randomNumber < 0.8)
-                            row.add("A");
-                    } else if((randomNumber >= 0.5 && randomNumber < 0.55) || (randomNumber >= 0.8 && randomNumber < 0.85)){
-                        if(randomNumber >= 0.5 && randomNumber < 0.54)
-                            row.add("D");
-                        else if(randomNumber >= 0.8 && randomNumber < 0.84)
-                            row.add("S");
-                        else if((randomNumber >= 0.54 && randomNumber < 0.55) || (randomNumber >= 0.84 && randomNumber < 0.85) )
-                            row.add("R");
-                    } else if(randomNumber >= 0.995){
-                        row.add("W");
-                    }
+                    // Obszar niebrzegowy lasu
+                    if (randomNumber < 0.25 || (randomNumber >= 0.85 && randomNumber < 0.995)) {
+                        {
+                            cells[x][y] = "L";
 
+                        }
+
+                    } else if ((randomNumber >= 0.25 && randomNumber < 0.45) || (randomNumber >= 0.55 && randomNumber < 0.65)) {
+                        if (randomNumber >= 0.25 && randomNumber < 0.3) {
+                            cells[x][y] = "I";
+                            HealingMushrooms healingMushrooms = new HealingMushrooms(x,y,mushroomId,false,"Pieprznik","Antibacterial");
+                            Data.ListMushroom.add(healingMushrooms);
+                            mushroomId++;
+                        }
+                        else if (randomNumber >= 0.3 && randomNumber < 0.35) {
+                            cells[x][y] = "M";
+                            HealingMushrooms healingMushrooms = new HealingMushrooms(x,y,mushroomId,false,"Maitake","Mood improvement");
+                            Data.ListMushroom.add(healingMushrooms);
+                            mushroomId++;
+                        }
+                        else if (randomNumber >= 0.35 && randomNumber < 0.4) {
+                            cells[x][y] = "O";
+                            EatableMushrooms eatableMushrooms = new EatableMushrooms(x,y,mushroomId,false,"Borowik","Taste improvement");
+                            Data.ListMushroom.add(eatableMushrooms);
+                            mushroomId++;
+                        }
+                        else if (randomNumber >= 0.4 && randomNumber < 0.45) {
+                            cells[x][y] = "P";
+                            EatableMushrooms eatableMushrooms = new EatableMushrooms(x,y,mushroomId,false,"Podgrzybek","Stops hunger");
+                            Data.ListMushroom.add(eatableMushrooms);
+                            mushroomId++;
+                        }
+                        else if (randomNumber >= 0.55 && randomNumber < 0.6) {
+                            cells[x][y] = "C";
+                            ToxicMushrooms toxicMushrooms = new ToxicMushrooms(x,y,mushroomId,false,"Muchomor czerwony","Stomachache");
+                            Data.ListMushroom.add(toxicMushrooms);
+                            mushroomId++;
+                        }
+                        else if (randomNumber >= 0.6 && randomNumber < 0.65) {
+                            cells[x][y] = "T";
+                            ToxicMushrooms toxicMushrooms = new ToxicMushrooms(x,y,mushroomId,false,"Muchomor stomotnikowy","Death");
+                            Data.ListMushroom.add(toxicMushrooms);
+                            mushroomId++;
+                        }
+                    } else if ((randomNumber >= 0.45 && randomNumber < 0.5) || (randomNumber >= 0.65 && randomNumber < 0.8)) {
+                        if (randomNumber >= 0.45 && randomNumber < 0.5) {
+                            cells[x][y] = "E";
+                            ForestFruits forestFruits = new ForestFruits(x,y,fruitId,"Jezyny",0,false,"Stops hunger");
+                            Data.ListFruits.add(forestFruits);
+                            fruitId++;
+                        }
+                        else if (randomNumber >= 0.65 && randomNumber < 0.70) {
+                            cells[x][y] = "J";
+                            ForestFruits forestFruits = new ForestFruits(x,y,fruitId,"Jagody",1,false,"Stops hunger");
+                            Data.ListFruits.add(forestFruits);
+                            fruitId++;
+                        }
+                        else if (randomNumber >= 0.7 && randomNumber < 0.75) {
+                            cells[x][y] = "B";
+                            ForestFruits forestFruits = new ForestFruits(x,y,fruitId,"Borowki",2,false,"Stops hunger");
+                            Data.ListFruits.add(forestFruits);
+                            fruitId++;
+                        }
+                        else if (randomNumber >= 0.75 && randomNumber < 0.8) {
+                            cells[x][y] = "A";
+                            ForestFruits forestFruits = new ForestFruits(x,y,fruitId,"Maliny",3,false,"Stops hunger");
+                            Data.ListFruits.add(forestFruits);
+                            fruitId++;
+                        }
+                    } else if ((randomNumber >= 0.5 && randomNumber < 0.55) || (randomNumber >= 0.8 && randomNumber < 0.85)) {
+                        if (randomNumber >= 0.5 && randomNumber < 0.54) {
+                            cells[x][y] = "D";
+                            Trees trees = new Trees(treesId,"Dab",0,x,y);
+                            Data.ListTrees.add(trees);
+                            treesId++;
+                        }
+                        else if (randomNumber >= 0.8 && randomNumber < 0.84) {
+                            cells[x][y] = "S";
+                            Trees trees = new Trees(treesId,"Sosna",1,x,y);
+                            Data.ListTrees.add(trees);
+                            treesId++;
+                        }
+                        else if ((randomNumber >= 0.54 && randomNumber < 0.55) || (randomNumber >= 0.84 && randomNumber < 0.85)) {
+                            cells[x][y] = "R";
+                            Trees trees = new Trees(treesId,"Brzoza",2,x,y);
+                            Data.ListTrees.add(trees);
+                            treesId++;
+                        }
+                    } else if (randomNumber >= 0.995) {
+                        cells[x][y] = "W";
+                        Wolf wolf = new Wolf(x,y,wolfId,true);
+                        Data.ListWolf.add(wolf);
+                        wolfId++;
+                    }
                 }
             }
-            forestMap.add(row);
-
         }
-    }
-
-    public void displayForest() {
-        for (ArrayList<String> row : forestMap) {
-            for (String cell : row) {
-                String ColorCode = getColorCode(cell);
-                System.out.print(ColorCode + cell + "\u001B[0m " + " " );
-            }
-            System.out.println();
-        }
-    }
-
-    public String getColorCode(String cell) {
-        switch(cell) {
-            case "D","S","R":
-                return "\u001B[32m"; // Kolor dla drzew (zielony)
-            case "I","M","O","P","C","T":
-                return "\u001B[33m"; // Kolor dla grzybów (żółty)
-            case "B","J","E","A":
-                return "\u001B[31m"; // Kolor dla owoców (czerwony)
-            case "W":
-                return "\u001B[30m"; // Kolor dla wilka (czarny)
-            default:
-                return "\u001B[0m"; // Domyślny kolor (biały)
-        }
+        //System.out.println(Data.ListWolf);
     }
 }
