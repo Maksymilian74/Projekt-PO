@@ -11,7 +11,7 @@ public class Main extends JFrame {
 
     private JLabel[][] cells;
     private Forest forest;
-    private Character character;
+    private static Character character;
     private JPanel forestPanel;
     private static JLabel infoLabel;
 
@@ -31,7 +31,7 @@ public class Main extends JFrame {
         infoLabel.setText(tekst);
     }
 
-    public static void endWindow(Character character) {
+    public static void endWindow() {
         JFrame frame = new JFrame();
         frame.setVisible(true);
         //frame.setSize(800, 600); // Zwiększenie rozmiaru okna
@@ -78,6 +78,25 @@ public class Main extends JFrame {
                 cells[i][j].setForeground(color);
             }
         }
+    }
+    private void autoMoveCharacter() {
+        Timer timer = new Timer(1000, new ActionListener() {
+            boolean endWindowCalled = false;
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (character != null) {
+                    character.autoMove();
+                    updateForestDisplay();
+
+                    if (!endWindowCalled && character.isAllItemsCollected()) {
+                        endWindow();
+                        endWindowCalled = true;
+                    }
+                }
+            }
+        });
+        timer.start();
     }
 
     private void initializeUI() {
@@ -216,6 +235,22 @@ public class Main extends JFrame {
                     forest = new Forest(size);
                     character = new Character(forest);
                     generateForestCells(size);
+                } else {
+                    Main.updateInfoLabel("Podaj liczbę (0;26]");
+                }
+            }
+        });
+
+        generateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int size = Integer.parseInt(sizeField.getText());
+                if (size > 0 && size <= 26) {
+                    Main.updateInfoLabel("");
+                    forest = new Forest(size);
+                    character = new Character(forest);
+                    generateForestCells(size);
+                    autoMoveCharacter(); // Dodane automatyczne poruszanie postaci
                 } else {
                     Main.updateInfoLabel("Podaj liczbę (0;26]");
                 }

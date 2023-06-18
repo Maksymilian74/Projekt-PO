@@ -49,68 +49,60 @@ public class Forest {
                     } else if ((randomNumber >= 0.25 && randomNumber < 0.4) || (randomNumber >= 0.5 && randomNumber < 0.65)) {
                         if (randomNumber >= 0.25 && randomNumber < 0.3) {
                             cells[x][y] = "I";
-                            HealingMushrooms healingMushrooms = new HealingMushrooms(x,y,mushroomId,false,"Pieprznik","Antibacterial");
+                            HealingMushrooms healingMushrooms = new HealingMushrooms(x, y, mushroomId, false, "Pieprznik", "Antibacterial");
                             Data.ListMushroom.add(healingMushrooms);
                             mushroomId++;
-                        }
-                        else if (randomNumber >= 0.3 && randomNumber < 0.35) {
+                        } else if (randomNumber >= 0.3 && randomNumber < 0.35) {
                             cells[x][y] = "M";
-                            HealingMushrooms healingMushrooms = new HealingMushrooms(x,y,mushroomId,false,"Maitake","Mood improvement");
+                            HealingMushrooms healingMushrooms = new HealingMushrooms(x, y, mushroomId, false, "Maitake", "Mood improvement");
                             Data.ListMushroom.add(healingMushrooms);
                             mushroomId++;
-                        }
-                        else if (randomNumber >= 0.35 && randomNumber < 0.4) {
+                        } else if (randomNumber >= 0.35 && randomNumber < 0.4) {
                             cells[x][y] = "O";
-                            EatableMushrooms eatableMushrooms = new EatableMushrooms(x,y,mushroomId,false,"Borowik","Taste improvement");
+                            EatableMushrooms eatableMushrooms = new EatableMushrooms(x, y, mushroomId, false, "Borowik", "Taste improvement");
                             Data.ListMushroom.add(eatableMushrooms);
                             mushroomId++;
-                        }
-                        else if (randomNumber >= 0.5 && randomNumber < 0.55) {
+                        } else if (randomNumber >= 0.5 && randomNumber < 0.55) {
                             cells[x][y] = "P";
-                            EatableMushrooms eatableMushrooms = new EatableMushrooms(x,y,mushroomId,false,"Podgrzybek","Stops hunger");
+                            EatableMushrooms eatableMushrooms = new EatableMushrooms(x, y, mushroomId, false, "Podgrzybek", "Stops hunger");
                             Data.ListMushroom.add(eatableMushrooms);
                             mushroomId++;
-                        }
-                        else if (randomNumber >= 0.55 && randomNumber < 0.6) {
+                        } else if (randomNumber >= 0.55 && randomNumber < 0.6) {
                             cells[x][y] = "C";
-                            ToxicMushrooms toxicMushrooms = new ToxicMushrooms(x,y,mushroomId,false,"Muchomor czerwony","Stomachache");
+                            ToxicMushrooms toxicMushrooms = new ToxicMushrooms(x, y, mushroomId, false, "Muchomor czerwony", "Stomachache");
                             Data.ListMushroom.add(toxicMushrooms);
                             mushroomId++;
-                        }
-                        else if (randomNumber >= 0.6 && randomNumber < 0.65) {
+                        } else if (randomNumber >= 0.6 && randomNumber < 0.65) {
                             cells[x][y] = "T";
-                            ToxicMushrooms toxicMushrooms = new ToxicMushrooms(x,y,mushroomId,false,"Muchomor stomotnikowy","Death");
+                            ToxicMushrooms toxicMushrooms = new ToxicMushrooms(x, y, mushroomId, false, "Muchomor stomotnikowy", "Death");
                             Data.ListMushroom.add(toxicMushrooms);
                             mushroomId++;
                         }
                     } else if ((randomNumber >= 0.4 && randomNumber < 0.5) || (randomNumber >= 0.65 && randomNumber < 0.7)) {
                         if (randomNumber >= 0.4 && randomNumber < 0.45) {
                             cells[x][y] = "E";
-                            ForestFruits forestFruits = new ForestFruits(x,y,fruitId,"Jezyny",0,false,"Stops hunger");
+                            ForestFruits forestFruits = new ForestFruits(x, y, fruitId, "Jezyny", 0, false, "Stops hunger");
                             Data.ListFruits.add(forestFruits);
                             fruitId++;
-                        }
-                        else if (randomNumber >= 0.45 && randomNumber < 0.5) {
+                        } else if (randomNumber >= 0.45 && randomNumber < 0.5) {
                             cells[x][y] = "J";
-                            ForestFruits forestFruits = new ForestFruits(x,y,fruitId,"Jagody",1,false,"Stops hunger");
+                            ForestFruits forestFruits = new ForestFruits(x, y, fruitId, "Jagody", 1, false, "Stops hunger");
                             Data.ListFruits.add(forestFruits);
                             fruitId++;
-                        }
-                        else if (randomNumber >= 0.65 && randomNumber < 0.68) {
+                        } else if (randomNumber >= 0.65 && randomNumber < 0.68) {
                             cells[x][y] = "B";
-                            ForestFruits forestFruits = new ForestFruits(x,y,fruitId,"Borowki",2,false,"Stops hunger");
+                            ForestFruits forestFruits = new ForestFruits(x, y, fruitId, "Borowki", 2, false, "Stops hunger");
                             Data.ListFruits.add(forestFruits);
                             fruitId++;
-                        }
-                        else if (randomNumber >= 0.68 && randomNumber < 0.7) {
+                        } else if (randomNumber >= 0.68 && randomNumber < 0.7) {
                             cells[x][y] = "A";
-                            ForestFruits forestFruits = new ForestFruits(x,y,fruitId,"Maliny",3,false,"Stops hunger");
+                            ForestFruits forestFruits = new ForestFruits(x, y, fruitId, "Maliny", 3, false, "Stops hunger");
                             Data.ListFruits.add(forestFruits);
                             fruitId++;
                         }
                     } else if (randomNumber >= 0.995) {
                         cells[x][y] = "W";
-                        Wolf wolf = new Wolf(x,y,wolfId,true);
+                        Wolf wolf = new Wolf(x, y, wolfId, true);
                         Data.ListWolf.add(wolf);
                         wolfId++;
                     }
@@ -119,93 +111,82 @@ public class Forest {
                     if (randomNumber < 0.25 || (randomNumber >= 0.85 && randomNumber < 0.995)) {
                         {
                             cells[x][y] = "L";
-
                         }
 
                     } else if ((randomNumber >= 0.25 && randomNumber < 0.45) || (randomNumber >= 0.55 && randomNumber < 0.65)) {
                         if (randomNumber >= 0.25 && randomNumber < 0.3) {
                             cells[x][y] = "I";
-                            HealingMushrooms healingMushrooms = new HealingMushrooms(x,y,mushroomId,false,"Pieprznik","Antibacterial");
+                            HealingMushrooms healingMushrooms = new HealingMushrooms(x, y, mushroomId, false, "Pieprznik", "Antibacterial");
                             Data.ListMushroom.add(healingMushrooms);
                             mushroomId++;
-                        }
-                        else if (randomNumber >= 0.3 && randomNumber < 0.35) {
+                        } else if (randomNumber >= 0.3 && randomNumber < 0.35) {
                             cells[x][y] = "M";
-                            HealingMushrooms healingMushrooms = new HealingMushrooms(x,y,mushroomId,false,"Maitake","Mood improvement");
+                            HealingMushrooms healingMushrooms = new HealingMushrooms(x, y, mushroomId, false, "Maitake", "Mood improvement");
                             Data.ListMushroom.add(healingMushrooms);
                             mushroomId++;
-                        }
-                        else if (randomNumber >= 0.35 && randomNumber < 0.4) {
+                        } else if (randomNumber >= 0.35 && randomNumber < 0.4) {
                             cells[x][y] = "O";
-                            EatableMushrooms eatableMushrooms = new EatableMushrooms(x,y,mushroomId,false,"Borowik","Taste improvement");
+                            EatableMushrooms eatableMushrooms = new EatableMushrooms(x, y, mushroomId, false, "Borowik", "Taste improvement");
                             Data.ListMushroom.add(eatableMushrooms);
                             mushroomId++;
-                        }
-                        else if (randomNumber >= 0.4 && randomNumber < 0.45) {
+                        } else if (randomNumber >= 0.4 && randomNumber < 0.45) {
                             cells[x][y] = "P";
-                            EatableMushrooms eatableMushrooms = new EatableMushrooms(x,y,mushroomId,false,"Podgrzybek","Stops hunger");
+                            EatableMushrooms eatableMushrooms = new EatableMushrooms(x, y, mushroomId, false, "Podgrzybek", "Stops hunger");
                             Data.ListMushroom.add(eatableMushrooms);
                             mushroomId++;
-                        }
-                        else if (randomNumber >= 0.55 && randomNumber < 0.6) {
+                        } else if (randomNumber >= 0.55 && randomNumber < 0.6) {
                             cells[x][y] = "C";
-                            ToxicMushrooms toxicMushrooms = new ToxicMushrooms(x,y,mushroomId,false,"Muchomor czerwony","Stomachache");
+                            ToxicMushrooms toxicMushrooms = new ToxicMushrooms(x, y, mushroomId, false, "Muchomor czerwony", "Stomachache");
                             Data.ListMushroom.add(toxicMushrooms);
                             mushroomId++;
-                        }
-                        else if (randomNumber >= 0.6 && randomNumber < 0.65) {
+                        } else if (randomNumber >= 0.6 && randomNumber < 0.65) {
                             cells[x][y] = "T";
-                            ToxicMushrooms toxicMushrooms = new ToxicMushrooms(x,y,mushroomId,false,"Muchomor stomotnikowy","Death");
+                            ToxicMushrooms toxicMushrooms = new ToxicMushrooms(x, y, mushroomId, false, "Muchomor stomotnikowy", "Death");
                             Data.ListMushroom.add(toxicMushrooms);
                             mushroomId++;
                         }
                     } else if ((randomNumber >= 0.45 && randomNumber < 0.5) || (randomNumber >= 0.65 && randomNumber < 0.8)) {
                         if (randomNumber >= 0.45 && randomNumber < 0.5) {
                             cells[x][y] = "E";
-                            ForestFruits forestFruits = new ForestFruits(x,y,fruitId,"Jezyny",0,false,"Stops hunger");
+                            ForestFruits forestFruits = new ForestFruits(x, y, fruitId, "Jezyny", 0, false, "Stops hunger");
                             Data.ListFruits.add(forestFruits);
                             fruitId++;
-                        }
-                        else if (randomNumber >= 0.65 && randomNumber < 0.70) {
+                        } else if (randomNumber >= 0.65 && randomNumber < 0.70) {
                             cells[x][y] = "J";
-                            ForestFruits forestFruits = new ForestFruits(x,y,fruitId,"Jagody",1,false,"Stops hunger");
+                            ForestFruits forestFruits = new ForestFruits(x, y, fruitId, "Jagody", 1, false, "Stops hunger");
                             Data.ListFruits.add(forestFruits);
                             fruitId++;
-                        }
-                        else if (randomNumber >= 0.7 && randomNumber < 0.75) {
+                        } else if (randomNumber >= 0.7 && randomNumber < 0.75) {
                             cells[x][y] = "B";
-                            ForestFruits forestFruits = new ForestFruits(x,y,fruitId,"Borowki",2,false,"Stops hunger");
+                            ForestFruits forestFruits = new ForestFruits(x, y, fruitId, "Borowki", 2, false, "Stops hunger");
                             Data.ListFruits.add(forestFruits);
                             fruitId++;
-                        }
-                        else if (randomNumber >= 0.75 && randomNumber < 0.8) {
+                        } else if (randomNumber >= 0.75 && randomNumber < 0.8) {
                             cells[x][y] = "A";
-                            ForestFruits forestFruits = new ForestFruits(x,y,fruitId,"Maliny",3,false,"Stops hunger");
+                            ForestFruits forestFruits = new ForestFruits(x, y, fruitId, "Maliny", 3, false, "Stops hunger");
                             Data.ListFruits.add(forestFruits);
                             fruitId++;
                         }
                     } else if ((randomNumber >= 0.5 && randomNumber < 0.55) || (randomNumber >= 0.8 && randomNumber < 0.85)) {
                         if (randomNumber >= 0.5 && randomNumber < 0.54) {
                             cells[x][y] = "D";
-                            Trees trees = new Trees(treesId,"Dab",0,x,y);
+                            Trees trees = new Trees(treesId, "Dab", 0, x, y);
                             Data.ListTrees.add(trees);
                             treesId++;
-                        }
-                        else if (randomNumber >= 0.8 && randomNumber < 0.84) {
+                        } else if (randomNumber >= 0.8 && randomNumber < 0.84) {
                             cells[x][y] = "S";
-                            Trees trees = new Trees(treesId,"Sosna",1,x,y);
+                            Trees trees = new Trees(treesId, "Sosna", 1, x, y);
                             Data.ListTrees.add(trees);
                             treesId++;
-                        }
-                        else if ((randomNumber >= 0.54 && randomNumber < 0.55) || (randomNumber >= 0.84 && randomNumber < 0.85)) {
+                        } else if ((randomNumber >= 0.54 && randomNumber < 0.55) || (randomNumber >= 0.84 && randomNumber < 0.85)) {
                             cells[x][y] = "R";
-                            Trees trees = new Trees(treesId,"Brzoza",2,x,y);
+                            Trees trees = new Trees(treesId, "Brzoza", 2, x, y);
                             Data.ListTrees.add(trees);
                             treesId++;
                         }
                     } else if (randomNumber >= 0.995) {
                         cells[x][y] = "W";
-                        Wolf wolf = new Wolf(x,y,wolfId,true);
+                        Wolf wolf = new Wolf(x, y, wolfId, true);
                         Data.ListWolf.add(wolf);
                         wolfId++;
                     }
