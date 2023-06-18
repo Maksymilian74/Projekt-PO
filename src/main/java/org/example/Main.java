@@ -80,6 +80,26 @@ public class Main extends JFrame {
         }
     }
 
+    private void autoMoveCharacter() {
+        Timer timer = new Timer(1000, new ActionListener() {
+            boolean endWindowCalled = false;
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (character != null) {
+                    character.autoMove();
+                    updateForestDisplay();
+
+                    if (!endWindowCalled && character.isAllItemsCollected()) {
+                        endWindow(character);
+                        endWindowCalled = true;
+                    }
+                }
+            }
+        });
+        timer.start();
+    }
+
     private void initializeUI() {
         JPanel mainPanel = new JPanel(new BorderLayout());
 
@@ -216,6 +236,7 @@ public class Main extends JFrame {
                     forest = new Forest(size);
                     character = new Character(forest);
                     generateForestCells(size);
+                    autoMoveCharacter();
                 } else {
                     Main.updateInfoLabel("Podaj liczbę (0;26]");
                 }
