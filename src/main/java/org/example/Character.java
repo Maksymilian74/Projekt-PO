@@ -170,7 +170,7 @@ public class Character {
                 }
             }
         }
-
+        System.out.println("Ilość ruchów: " + Main.getRound());
         for (Map.Entry<String, Integer> entry : Basket.entrySet()) {
             String word = entry.getKey();
             int count = entry.getValue();

@@ -212,6 +212,5 @@ public class Forest {
                 }
             }
         }
-        //System.out.println(Data.ListWolf);
     }
 }

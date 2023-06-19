@@ -16,9 +16,10 @@ public class Main extends JFrame {
     private static JLabel infoLabel;
     private boolean AutoMove = true;
     private static boolean EndWindowDisplayed = false;
+    private static int Round;
 
     public Main() {
-
+        Round = 0;
         setTitle("Forest Simulation");
         ImageIcon icon = new ImageIcon(getClass().getClassLoader().getResource("images/forest.png"));
         setIconImage(icon.getImage());
@@ -31,6 +32,10 @@ public class Main extends JFrame {
 
     public static void updateInfoLabel(String tekst) {
         infoLabel.setText(tekst);
+    }
+
+    public static int getRound() {
+        return Round;
     }
 
     public static void endWindow(Character character) {
@@ -57,6 +62,7 @@ public class Main extends JFrame {
         basketLabel.setFont(new Font("Arial", Font.PLAIN, 20));
         basketLabel.setBorder(BorderFactory.createEmptyBorder(5, 20, 15, 20));
         StringBuilder basketText = new StringBuilder("<html>");
+        basketText.append("Ilość ruchów: ").append(getRound()).append("<br>");
         basketText.append("Zawartość koszyka: ").append("<br>");
         for (Map.Entry<String, Integer> entry : basket.entrySet()) {
             String itemName = entry.getKey();
@@ -94,6 +100,7 @@ public class Main extends JFrame {
                 }
 
                 if (character != null) {
+                    Round++;
                     character.autoMove();
                     updateForestDisplay();
 
@@ -248,6 +255,7 @@ public class Main extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                     AutoMove = true;
+                    Main.updateInfoLabel("Auto move ON");
                     autoMoveCharacter();
             }
         });
@@ -256,7 +264,8 @@ public class Main extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                     AutoMove = false;
-                    //endWindow(character); możliwość wyświetlania podsumowania po każdym wstrzymaniu ruchu
+                    Main.updateInfoLabel("Auto move OFF");
+                    endWindow(character); //możliwość wyświetlania podsumowania po każdym wstrzymaniu ruchu
             }
         });
 
@@ -280,6 +289,7 @@ public class Main extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (character != null) {
+                    Round++;
                     character.moveUp();
                     updateForestDisplay();
                 }
@@ -290,6 +300,7 @@ public class Main extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (character != null) {
+                    Round++;
                     character.moveDown();
                     updateForestDisplay();
                 }
@@ -300,6 +311,7 @@ public class Main extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (character != null) {
+                    Round++;
                     character.moveLeft();
                     updateForestDisplay();
                 }
@@ -310,6 +322,7 @@ public class Main extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (character != null) {
+                    Round++;
                     character.moveRight();
                     updateForestDisplay();
                 }
