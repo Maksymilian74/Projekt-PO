@@ -265,21 +265,14 @@ public class Character {
                     // Na mapie istnieje jeszcze co najmniej jeden przedmiot
                     return;
                 } else if (cell.equals("B") || cell.equals("J") || cell.equals("E") || cell.equals("A")) {
-                    for (ForestFruits forestFruits : Data.ListFruits) {
-                        if (forestFruits.getPosition_x() == i && forestFruits.getPosition_y() == j) {
-                            ifCollected = forestFruits.getIfCollected();
-                            break;
-                        }
-                    }
-                    if(ifCollected == true) {
-                        return;
-                    }
+                    allItemsCollected = true;
+                    return;
                 }
             }
         }
 
         // Jeśli nie znaleziono żadnego celu i nie ma już przedmiotów na mapie, zakończ działanie
-        allItemsCollected = true;
+
     }
 
     public boolean isAllItemsCollected() {
