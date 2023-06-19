@@ -8,7 +8,6 @@ import java.util.Map;
 
 public class Main extends JFrame {
 
-
     private JLabel[][] cells;
     private Forest forest;
     private Character character;
@@ -30,19 +29,18 @@ public class Main extends JFrame {
         setVisible(true);
     }
 
-    public static void updateInfoLabel(String tekst) {
-        infoLabel.setText(tekst);
-    }
-
     public static int getRound() {
         return Round;
+    }
+
+    public static void updateInfoLabel(String tekst) {
+        infoLabel.setText(tekst);
     }
 
     public static void endWindow(Character character) {
         EndWindowDisplayed = true;
         JFrame frame = new JFrame();
         frame.setVisible(true);
-        //frame.setSize(800, 600); // Zwiększenie rozmiaru okna
         frame.setLocationRelativeTo(null);
         frame.setBackground(new Color(89, 89, 99));
 
@@ -71,11 +69,11 @@ public class Main extends JFrame {
         }
         basketText.append("</html>");
         basketLabel.setText(basketText.toString());
-
         contentPanel.add(basketLabel);
-
         frame.pack();
+
     }
+
     private void updateForestDisplay() {
         int size = forest.getSize_x();
 
@@ -122,7 +120,6 @@ public class Main extends JFrame {
         sidePanel.setBackground(new Color(89, 89, 99));
 
         forestPanel = new JPanel();
-        //forestPanel.setBackground(new Color(64, 207, 78));
         forestPanel.setBackground(new Color(135, 237, 147, 255));
         forestPanel.setBounds(0,0,750,750);
 

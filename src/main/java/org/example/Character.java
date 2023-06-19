@@ -23,6 +23,12 @@ public class Character {
     public Map<String, Integer> getBasket() {
         return Basket;
     }
+    public boolean isAllItemsCollected() {
+        return allItemsCollected;
+    }
+    private void endWindow() {
+        Main.endWindow(this);
+    }
 
     public void moveUp() {
         if (position_x > 0) {
@@ -275,10 +281,6 @@ public class Character {
 
     }
 
-    public boolean isAllItemsCollected() {
-        return allItemsCollected;
-    }
-
     private boolean isTree(int x, int y) {
         String cell = forest.getCell(x, y);
         return cell.equals("D") || cell.equals("R") || cell.equals("S");
@@ -331,9 +333,5 @@ public class Character {
         if (targetCell.equals("W")) {
             forest.setCell(position_x, position_y, "☹");
         }
-    }
-
-    private void endWindow() {
-        Main.endWindow(this);
     }
 }

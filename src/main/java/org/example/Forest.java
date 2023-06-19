@@ -110,7 +110,7 @@ public class Forest {
                         }
                     } else if (randomNumber >= 0.995) {
                         cells[x][y] = "W";
-                        Wolf wolf = new Wolf(x,y,wolfId,true);
+                        Wolf wolf = new Wolf(x,y,wolfId);
                         Data.ListWolf.add(wolf);
                         wolfId++;
                     }
@@ -205,7 +205,7 @@ public class Forest {
                         }
                     } else if (randomNumber >= 0.995) {
                         cells[x][y] = "W";
-                        Wolf wolf = new Wolf(x,y,wolfId,true);
+                        Wolf wolf = new Wolf(x,y,wolfId);
                         Data.ListWolf.add(wolf);
                         wolfId++;
                     }
