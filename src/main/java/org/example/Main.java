@@ -14,6 +14,8 @@ public class Main extends JFrame {
     private Character character;
     private JPanel forestPanel;
     private static JLabel infoLabel;
+    private boolean AutoMove = true;
+    private static boolean EndWindowDisplayed = false;
 
     public Main() {
 
@@ -32,6 +34,7 @@ public class Main extends JFrame {
     }
 
     public static void endWindow(Character character) {
+        EndWindowDisplayed = true;
         JFrame frame = new JFrame();
         frame.setVisible(true);
         //frame.setSize(800, 600); // Zwiększenie rozmiaru okna
@@ -86,11 +89,15 @@ public class Main extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (!AutoMove) {
+                    return;
+                }
+
                 if (character != null) {
                     character.autoMove();
                     updateForestDisplay();
 
-                    if (!endWindowCalled && character.isAllItemsCollected()) {
+                    if (!endWindowCalled && character.isAllItemsCollected() && EndWindowDisplayed == false) {
                         endWindow(character);
                         endWindowCalled = true;
                     }
@@ -113,7 +120,7 @@ public class Main extends JFrame {
         forestPanel.setBounds(0,0,750,750);
 
         JPanel controlPanel = new JPanel();//new GridBagLayout()
-        controlPanel.setBounds(750,300,250,450);
+        controlPanel.setBounds(750,280,250,470);
         controlPanel.setSize(750,300);
         controlPanel.setBackground(new Color(89, 89, 99));
         controlPanel.setLayout(null);
@@ -122,25 +129,35 @@ public class Main extends JFrame {
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
 
+        JLabel automoveLabel = new JLabel("Automatyczne streowanie:");
+        automoveLabel.setBounds(760,272,240,40);
+        automoveLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 15));
+        JButton startAutomoveButton = new JButton("Start");
+        startAutomoveButton.setBounds(765,310,95,30);
+        JButton stopAutomoveButton = new JButton("Stop");
+        stopAutomoveButton.setBounds(870,310,95,30);
         JLabel sizeLabel = new JLabel("Enter forest size: ");
-        sizeLabel.setBounds(780,300,200,60);
+        sizeLabel.setBounds(780,330,200,60);
         sizeLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 16));
         JTextField sizeField = new JTextField(4);
-        sizeField.setBounds(780,345,100,40);
+        sizeField.setBounds(780,375,100,40);
         JButton generateButton = new JButton("Generate Forest");
-        generateButton.setBounds(780,390,135,50);
+        generateButton.setBounds(780,420,135,50);
         JButton moveUpButton = new JButton("Move Up");
-        moveUpButton.setBounds(780,445,135,50);
+        moveUpButton.setBounds(780,475,135,50);
         JButton moveDownButton = new JButton("Move Down");
-        moveDownButton.setBounds(780,500,135,50);
+        moveDownButton.setBounds(780,530,135,50);
         JButton moveLeftButton = new JButton("Move Left");
-        moveLeftButton.setBounds(780,555,135,50);
+        moveLeftButton.setBounds(780,585,135,50);
         JButton moveRightButton = new JButton("Move Right");
-        moveRightButton.setBounds(780,610,135,50);
+        moveRightButton.setBounds(780,640,135,50);
         infoLabel = new JLabel();
-        infoLabel.setBounds(780,645,230,100);
+        infoLabel.setBounds(780,665,230,100);
         infoLabel.setForeground(Color.red);
         infoLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 14));
+        controlPanel.add(automoveLabel);
+        controlPanel.add(startAutomoveButton);
+        controlPanel.add(stopAutomoveButton);
         controlPanel.add(sizeLabel);
         controlPanel.add(sizeField);
         controlPanel.add(generateButton);
@@ -151,7 +168,7 @@ public class Main extends JFrame {
         controlPanel.add(infoLabel);
 
         JPanel infoPanel = new JPanel(new GridLayout(0, 1));
-        infoPanel.setBounds(750,0,250,300);
+        infoPanel.setBounds(750,0,250,280);
         infoPanel.setBackground(new Color(89, 89, 99));
         infoPanel.setBorder(BorderFactory.createEmptyBorder(5, 20, 5, 10));
 
@@ -226,6 +243,23 @@ public class Main extends JFrame {
         sidePanel.add(controlPanel,BorderLayout.CENTER);
         add(mainPanel);
 
+        startAutomoveButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                    AutoMove = true;
+                    autoMoveCharacter();
+            }
+        });
+
+        stopAutomoveButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                    AutoMove = false;
+                    //endWindow(character); możliwość wyświetlania podsumowania po każdym wstrzymaniu ruchu
+            }
+        });
+
 
         generateButton.addActionListener(new ActionListener() {
             @Override
@@ -236,7 +270,6 @@ public class Main extends JFrame {
                     forest = new Forest(size);
                     character = new Character(forest);
                     generateForestCells(size);
-                    autoMoveCharacter();
                 } else {
                     Main.updateInfoLabel("Podaj liczbę (0;26]");
                 }
