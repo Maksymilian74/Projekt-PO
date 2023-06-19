@@ -267,64 +267,56 @@ public class Character {
 
         // Jeśli możliwe jest poruszanie się w lewo
         if (canMoveLeft) {
-            // Sprawdź czy postać może ominąć drzewo idąc w górę i potem w lewo
+            // Sprawdź czy postać może ominąć drzewo idąc w górę
             if (canMoveUp && !isTree(position_x - 1, position_y - 1)) {
                 moveUp();
-                moveLeft();
                 return;
             }
-            // Sprawdź czy postać może ominąć drzewo idąc w dół i potem w lewo
+            // Sprawdź czy postać może ominąć drzewo idąc w dół
             if (canMoveDown && !isTree(position_x + 1, position_y - 1)) {
                 moveDown();
-                moveLeft();
                 return;
             }
         }
 
         // Jeśli możliwe jest poruszanie się w prawo
         if (canMoveRight) {
-            // Sprawdź czy postać może ominąć drzewo idąc w górę i potem w prawo
+            // Sprawdź czy postać może ominąć drzewo idąc w górę
             if (canMoveUp && !isTree(position_x - 1, position_y + 1)) {
                 moveUp();
-                moveRight();
                 return;
             }
-            // Sprawdź czy postać może ominąć drzewo idąc w dół i potem w prawo
+            // Sprawdź czy postać może ominąć drzewo idąc w dół
             if (canMoveDown && !isTree(position_x + 1, position_y + 1)) {
                 moveDown();
-                moveRight();
                 return;
             }
         }
 
         // Jeśli możliwe jest poruszanie się w górę
         if (canMoveUp) {
-            // Sprawdź czy postać może ominąć drzewo idąc w lewo i potem w górę
+            // Sprawdź czy postać może ominąć drzewo idąc w lewo
             if (canMoveLeft && !isTree(position_x - 1, position_y - 1)) {
                 moveLeft();
-                moveUp();
                 return;
             }
-            // Sprawdź czy postać może ominąć drzewo idąc w prawo i potem w górę
+            // Sprawdź czy postać może ominąć drzewo idąc w prawo
             if (canMoveRight && !isTree(position_x - 1, position_y + 1)) {
                 moveRight();
-                moveUp();
                 return;
             }
         }
 
         // Jeśli możliwe jest poruszanie się w dół
         if (canMoveDown) {
-            // Sprawdź czy postać może ominąć drzewo idąc w lewo i potem w dół
+            // Sprawdź czy postać może ominąć drzewo idąc w lewo
             if (canMoveLeft && !isTree(position_x + 1, position_y - 1)) {
                 moveLeft();
-                moveDown();
                 return;
             }
-            // Sprawdź czy postać może ominąć drzewo idąc w prawo i potem w dół
+            // Sprawdź czy postać może ominąć drzewo idąc w prawo
             if (canMoveRight && !isTree(position_x + 1, position_y + 1)) {
                 moveRight();
-                moveDown();
                 return;
             }
         }
@@ -332,6 +324,7 @@ public class Character {
         // Jeśli postać nie może wykonać żadnego ruchu, wykonaj losowy ruch
         randomMove();
     }
+
 
     private boolean canMoveLeft(int x, int y) {
         return y > 0 && !isTree(x, y - 1);

@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="50449fb7-f461-49bf-a63e-acba5781ae13" name="Changes" comment="Dodanie wszystkich tworzonych obiektów do list">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="50449fb7-f461-49bf-a63e-acba5781ae13" name="Changes" comment="Auto ruch wersja v1.0">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Character.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +82,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686600435364</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Auto ruch wersja v1.0">
+      <created>1687195279399</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1687195279399</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -103,7 +109,8 @@
     <MESSAGE value="Dodanie legendy w Mian" />
     <MESSAGE value="Dodanie kolorów w legendzie w Main&#10;+ drobna zmiana w klasie Forest" />
     <MESSAGE value="Dodanie wszystkich tworzonych obiektów do list" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodanie wszystkich tworzonych obiektów do list" />
+    <MESSAGE value="Auto ruch wersja v1.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Auto ruch wersja v1.0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
