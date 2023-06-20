@@ -198,7 +198,7 @@ public class Character {
         for (int i = 0; i < size_x; i++) {
             for (int j = 0; j < size_y; j++) {
                 String cell = forest.getCell(i, j);
-                if (cell.equals("C") || cell.equals("T") || cell.equals("P") || cell.equals("O") || cell.equals("M") || cell.equals("I")) {
+                if(cell.equals("C") || cell.equals("T") || cell.equals("P") || cell.equals("O") || cell.equals("M") || cell.equals("I")) {
                     distance = Math.abs(position_x - i) + Math.abs(position_y - j);
                     if (distance < minDistance) {
                         minDistance = distance;
@@ -212,7 +212,7 @@ public class Character {
                             break;
                         }
                     }
-                    if (ifCollected == false) {
+                    if(ifCollected == false) {
                         distance = Math.abs(position_x - i) + Math.abs(position_y - j);
                         if (distance < minDistance) {
                             minDistance = distance;
@@ -222,7 +222,10 @@ public class Character {
                     }
                 }
             }
+
         }
+
+
 
         // Jeśli znaleziono cel, wykonaj ruch w jego kierunku
         if (target_x != -1 && target_y != -1) {
@@ -253,95 +256,30 @@ public class Character {
                 moveDown();
                 return;
             }
-        } else {
-            // Jeśli nie znaleziono celu, wykonaj losowy ruch
+
+            // Jeśli postać nie może wykonać żadnego ruchu w kierunku celu, wykonaj losowy ruch
             randomMove();
             return;
         }
 
-        // Jeśli nie udało się znaleźć bezpośredniego celu, sprawdź możliwość obejścia drzewa
-        boolean canMoveLeft = position_y > 0 && !isTree(position_x, position_y - 1);
-        boolean canMoveRight = position_y < size_y - 1 && !isTree(position_x, position_y + 1);
-        boolean canMoveUp = position_x > 0 && !isTree(position_x - 1, position_y);
-        boolean canMoveDown = position_x < size_x - 1 && !isTree(position_x + 1, position_y);
-
-        // Jeśli możliwe jest poruszanie się w lewo
-        if (canMoveLeft) {
-            // Sprawdź czy postać może ominąć drzewo idąc w górę
-            if (canMoveUp && !isTree(position_x - 1, position_y - 1)) {
-                moveUp();
-                return;
-            }
-            // Sprawdź czy postać może ominąć drzewo idąc w dół
-            if (canMoveDown && !isTree(position_x + 1, position_y - 1)) {
-                moveDown();
-                return;
+        // Jeśli nie znaleziono żadnego celu, sprawdź czy istnieją jeszcze przedmioty na mapie
+        for (int i = 0; i < size_x; i++) {
+            for (int j = 0; j < size_y; j++) {
+                String cell = forest.getCell(i, j);
+                /* ! */
+                if (cell.equals("C") || cell.equals("T") || cell.equals("P") || cell.equals("O") || cell.equals("M") || cell.equals("I")) {
+                    // Na mapie istnieje jeszcze co najmniej jeden przedmiot
+                    return;
+                } else if (cell.equals("B") || cell.equals("J") || cell.equals("E") || cell.equals("A")) {
+                    allItemsCollected = true;
+                    return;
+                }
             }
         }
 
-        // Jeśli możliwe jest poruszanie się w prawo
-        if (canMoveRight) {
-            // Sprawdź czy postać może ominąć drzewo idąc w górę
-            if (canMoveUp && !isTree(position_x - 1, position_y + 1)) {
-                moveUp();
-                return;
-            }
-            // Sprawdź czy postać może ominąć drzewo idąc w dół
-            if (canMoveDown && !isTree(position_x + 1, position_y + 1)) {
-                moveDown();
-                return;
-            }
-        }
+        // Jeśli nie znaleziono żadnego celu i nie ma już przedmiotów na mapie, zakończ działanie
 
-        // Jeśli możliwe jest poruszanie się w górę
-        if (canMoveUp) {
-            // Sprawdź czy postać może ominąć drzewo idąc w lewo
-            if (canMoveLeft && !isTree(position_x - 1, position_y - 1)) {
-                moveLeft();
-                return;
-            }
-            // Sprawdź czy postać może ominąć drzewo idąc w prawo
-            if (canMoveRight && !isTree(position_x - 1, position_y + 1)) {
-                moveRight();
-                return;
-            }
-        }
-
-        // Jeśli możliwe jest poruszanie się w dół
-        if (canMoveDown) {
-            // Sprawdź czy postać może ominąć drzewo idąc w lewo
-            if (canMoveLeft && !isTree(position_x + 1, position_y - 1)) {
-                moveLeft();
-                return;
-            }
-            // Sprawdź czy postać może ominąć drzewo idąc w prawo
-            if (canMoveRight && !isTree(position_x + 1, position_y + 1)) {
-                moveRight();
-                return;
-            }
-        }
-
-        // Jeśli postać nie może wykonać żadnego ruchu, wykonaj losowy ruch
-        randomMove();
     }
-
-
-    private boolean canMoveLeft(int x, int y) {
-        return y > 0 && !isTree(x, y - 1);
-    }
-
-    private boolean canMoveRight(int x, int y, int size_y) {
-        return y < size_y - 1 && !isTree(x, y + 1);
-    }
-
-    private boolean canMoveUp(int x, int y) {
-        return x > 0 && !isTree(x - 1, y);
-    }
-
-    private boolean canMoveDown(int x, int y, int size_x) {
-        return x < size_x - 1 && !isTree(x + 1, y);
-    }
-
 
     private boolean isTree(int x, int y) {
         String cell = forest.getCell(x, y);

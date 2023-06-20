@@ -251,18 +251,18 @@ public class Main extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                    AutoMove = true;
-                    Main.updateInfoLabel("Auto move ON");
-                    autoMoveCharacter();
+                AutoMove = true;
+                Main.updateInfoLabel("Auto move ON");
+                autoMoveCharacter();
             }
         });
 
         stopAutomoveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                    AutoMove = false;
-                    Main.updateInfoLabel("Auto move OFF");
-                    endWindow(character); //możliwość wyświetlania podsumowania po każdym wstrzymaniu ruchu
+                AutoMove = false;
+                Main.updateInfoLabel("Auto move OFF");
+                endWindow(character); //możliwość wyświetlania podsumowania po każdym wstrzymaniu ruchu
             }
         });
 

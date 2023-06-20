@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="50449fb7-f461-49bf-a63e-acba5781ae13" name="Changes" comment="Auto ruch wersja v1.0">
+    <list default="true" id="50449fb7-f461-49bf-a63e-acba5781ae13" name="Changes" comment="Uporządkowanie kodu">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +25,14 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2QNMDDGRTyjMHtZDrgP5YVixspb" />
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2RBa3gFBRjQXoPcfdBXyupNsZyd" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -31,96 +40,58 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/g_sie/OneDrive/Pulpit/Prototyp Etap 6 PO/Projekt-PO&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="50449fb7-f461-49bf-a63e-acba5781ae13" name="Changes" comment="" />
-      <created>1685189465817</created>
+      <changelist id="50449fb7-f461-49bf-a63e-acba5781ae13" name="Changes" comment="Dodanie kolorów w legendzie w Main&#10;+ drobna zmiana w klasie Forest" />
+      <created>1686725737099</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1685189465817</updated>
+      <updated>1686725737099</updated>
     </task>
-    <task id="LOCAL-00001" summary="Modyfikacja klasy Forest:&#10;-Maks coś zepsuł xD&#10;Modyfikacja klasy Main:&#10;- dodanie do menu opcji z umiejscowieniem bohatera i jego poruszaniem które odbywa się w klasie Simulation&#10;Modyfikacja klasy Simulation:&#10;- ruch postaci :) Wersja TESTOWA">
-      <created>1685398969916</created>
+    <task id="LOCAL-00001" summary="Poprawienie podsumowania po zakończeniu automove">
+      <created>1687168502509</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1685398969916</updated>
+      <updated>1687168502509</updated>
     </task>
-    <task id="LOCAL-00002" summary="Modyfikacja klasy Simulation">
-      <created>1685441144532</created>
+    <task id="LOCAL-00002" summary="Modyfikacja GUI oraz dodanie funkcjonalności Start i Stop">
+      <created>1687171460634</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1685441144532</updated>
+      <updated>1687171460634</updated>
     </task>
-    <task id="LOCAL-00003" summary="Dodanie legendy w Mian">
-      <created>1685478287794</created>
+    <task id="LOCAL-00003" summary="Dodanie licznika rund">
+      <created>1687177702662</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1685478287794</updated>
+      <updated>1687177702662</updated>
     </task>
-    <task id="LOCAL-00004" summary="Dodanie kolorów w legendzie w Main&#10;+ drobna zmiana w klasie Forest">
-      <created>1685478985989</created>
+    <task id="LOCAL-00004" summary="Uporządkowanie kodu">
+      <created>1687180834842</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1685478985989</updated>
+      <updated>1687180834842</updated>
     </task>
-    <task id="LOCAL-00005" summary="Dodanie wszystkich tworzonych obiektów do list">
-      <created>1686600435364</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1686600435364</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Auto ruch wersja v1.0">
-      <created>1687195279399</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1687195279399</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Modyfikacja klasy Forest:&#10;-Maks coś zepsuł xD&#10;Modyfikacja klasy Main:&#10;- dodanie do menu opcji z umiejscowieniem bohatera i jego poruszaniem które odbywa się w klasie Simulation&#10;Modyfikacja klasy Simulation:&#10;- ruch postaci :) Wersja TESTOWA" />
-    <MESSAGE value="Modyfikacja klasy Simulation" />
-    <MESSAGE value="Dodanie legendy w Mian" />
-    <MESSAGE value="Dodanie kolorów w legendzie w Main&#10;+ drobna zmiana w klasie Forest" />
-    <MESSAGE value="Dodanie wszystkich tworzonych obiektów do list" />
-    <MESSAGE value="Auto ruch wersja v1.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Auto ruch wersja v1.0" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
-          <line>334</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Poprawienie podsumowania po zakończeniu automove" />
+    <MESSAGE value="Modyfikacja GUI oraz dodanie funkcjonalności Start i Stop" />
+    <MESSAGE value="Dodanie licznika rund" />
+    <MESSAGE value="Uporządkowanie kodu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Uporządkowanie kodu" />
   </component>
 </project>
