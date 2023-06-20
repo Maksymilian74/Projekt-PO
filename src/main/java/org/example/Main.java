@@ -13,12 +13,18 @@ public class Main extends JFrame {
     private Character character;
     private JPanel forestPanel;
     private static JLabel infoLabel;
-    private boolean AutoMove = true;
-    private static boolean EndWindowDisplayed = true;
+    private boolean AutoMove;
+    private static boolean EndWindowDisplayed;
     private static int Round;
+    private boolean MapGenerated;
+    private boolean StartStop;
 
     public Main() {
         Round = 0;
+        MapGenerated = false;
+        EndWindowDisplayed = true;
+        AutoMove = true;
+        StartStop = false;
         setTitle("Forest Simulation");
         ImageIcon icon = new ImageIcon(getClass().getClassLoader().getResource("images/forest.png"));
         setIconImage(icon.getImage());
@@ -92,7 +98,6 @@ public class Main extends JFrame {
 
     private void autoMoveCharacter() {
         Timer timer = new Timer(1000, new ActionListener() {
-            boolean endWindowCalled = false;
 
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -101,16 +106,12 @@ public class Main extends JFrame {
                 }
 
                 if (character != null && character.isAllItemsCollected() == false) {
-                    System.out.println("endWindowCalled: " + endWindowCalled);
-                    System.out.println("isAllItemsCollected: " + character.isAllItemsCollected());
-                    System.out.println("EndWindowDisplayed: " + EndWindowDisplayed);
                     Round++;
                     character.autoMove();
                     updateForestDisplay();
 
-                    if (!endWindowCalled && EndWindowDisplayed == false) {
+                    if ( EndWindowDisplayed == false) {
                         endWindow(character);
-                        endWindowCalled = true;
                         EndWindowDisplayed = true;
                     }
                 }
@@ -257,19 +258,36 @@ public class Main extends JFrame {
         startAutomoveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                AutoMove = true;
-                Main.updateInfoLabel("Auto move ON");
-                autoMoveCharacter();
+                if (MapGenerated == true) {
+                    if(StartStop == false) {
+                        StartStop = true;
+                        AutoMove = true;
+                        Main.updateInfoLabel("Auto move ON");
+                        autoMoveCharacter();
+                    } else {
+                        Main.updateInfoLabel("Już jest ON");
+                    }
+                } else {
+                    Main.updateInfoLabel("Wygeneruj mapę");
+                }
             }
         });
 
         stopAutomoveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                AutoMove = false;
-                Main.updateInfoLabel("Auto move OFF");
-                endWindow(character); //możliwość wyświetlania podsumowania po każdym wstrzymaniu ruchu
+                if (MapGenerated == true) {
+                    if(StartStop == true) {
+                        StartStop = false;
+                        AutoMove = false;
+                        Main.updateInfoLabel("Auto move OFF");
+                        endWindow(character); //możliwość wyświetlania podsumowania po każdym wstrzymaniu ruchu
+                    } else {
+                        Main.updateInfoLabel("Już jest OFF");
+                    }
+                } else {
+                    Main.updateInfoLabel("Wygeneruj mapę");
+                }
             }
         });
 
@@ -277,14 +295,24 @@ public class Main extends JFrame {
         generateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int size = Integer.parseInt(sizeField.getText());
-                if(size > 0 && size <= 26) {
-                    Main.updateInfoLabel("");
-                    forest = new Forest(size);
-                    character = new Character(forest);
-                    generateForestCells(size);
+                String sizeText = sizeField.getText();
+                if (sizeText.isEmpty()) {
+                    Main.updateInfoLabel("Podaj rozmiar");
                 } else {
-                    Main.updateInfoLabel("Podaj liczbę (0;26]");
+                    if (MapGenerated == false) {
+                        MapGenerated = true;
+                        int size = Integer.parseInt(sizeField.getText());
+                        if (size > 0 && size <= 26) {
+                            Main.updateInfoLabel("");
+                            forest = new Forest(size);
+                            character = new Character(forest);
+                            generateForestCells(size);
+                        } else {
+                            Main.updateInfoLabel("Podaj liczbę (0;26]");
+                        }
+                    } else {
+                        Main.updateInfoLabel("Mapa już wygenerowana");
+                    }
                 }
             }
         });
@@ -292,10 +320,14 @@ public class Main extends JFrame {
         moveUpButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (character != null) {
-                    Round++;
-                    character.moveUp();
-                    updateForestDisplay();
+                if (MapGenerated == true) {
+                    if (character != null) {
+                        Round++;
+                        character.moveUp();
+                        updateForestDisplay();
+                    }
+                } else {
+                    Main.updateInfoLabel("Wygeneruj mapę");
                 }
             }
         });
@@ -303,10 +335,14 @@ public class Main extends JFrame {
         moveDownButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (character != null) {
-                    Round++;
-                    character.moveDown();
-                    updateForestDisplay();
+                if (MapGenerated == true) {
+                    if (character != null) {
+                        Round++;
+                        character.moveDown();
+                        updateForestDisplay();
+                    }
+                } else {
+                    Main.updateInfoLabel("Wygeneruj mapę");
                 }
             }
         });
@@ -314,10 +350,14 @@ public class Main extends JFrame {
         moveLeftButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (character != null) {
-                    Round++;
-                    character.moveLeft();
-                    updateForestDisplay();
+                if (MapGenerated == true) {
+                    if (character != null) {
+                        Round++;
+                        character.moveLeft();
+                        updateForestDisplay();
+                    }
+                } else {
+                    Main.updateInfoLabel("Wygeneruj mapę");
                 }
             }
         });
@@ -325,10 +365,14 @@ public class Main extends JFrame {
         moveRightButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (character != null) {
-                    Round++;
-                    character.moveRight();
-                    updateForestDisplay();
+                if (MapGenerated == true) {
+                    if (character != null) {
+                        Round++;
+                        character.moveRight();
+                        updateForestDisplay();
+                    }
+                } else {
+                    Main.updateInfoLabel("Wygeneruj mapę");
                 }
             }
         });
