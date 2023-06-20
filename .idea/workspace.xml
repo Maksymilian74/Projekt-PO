@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="50449fb7-f461-49bf-a63e-acba5781ae13" name="Changes" comment="Uporządkowanie kodu">
+    <list default="true" id="50449fb7-f461-49bf-a63e-acba5781ae13" name="Changes" comment="Przywrócenie działającego kodu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Character.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
@@ -84,7 +84,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687180834842</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Przywrócenie działającego kodu">
+      <created>1687246049093</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1687246049093</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -92,6 +99,7 @@
     <MESSAGE value="Modyfikacja GUI oraz dodanie funkcjonalności Start i Stop" />
     <MESSAGE value="Dodanie licznika rund" />
     <MESSAGE value="Uporządkowanie kodu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Uporządkowanie kodu" />
+    <MESSAGE value="Przywrócenie działającego kodu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Przywrócenie działającego kodu" />
   </component>
 </project>

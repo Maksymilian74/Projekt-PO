@@ -14,7 +14,7 @@ public class Main extends JFrame {
     private JPanel forestPanel;
     private static JLabel infoLabel;
     private boolean AutoMove = true;
-    private static boolean EndWindowDisplayed = false;
+    private static boolean EndWindowDisplayed = true;
     private static int Round;
 
     public Main() {
@@ -32,13 +32,16 @@ public class Main extends JFrame {
     public static int getRound() {
         return Round;
     }
+    public static void setEndWindowDisplayed() {
+        EndWindowDisplayed = true;
+    }
 
     public static void updateInfoLabel(String tekst) {
         infoLabel.setText(tekst);
     }
 
     public static void endWindow(Character character) {
-        EndWindowDisplayed = true;
+        //EndWindowDisplayed = true;
         JFrame frame = new JFrame();
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
@@ -97,14 +100,18 @@ public class Main extends JFrame {
                     return;
                 }
 
-                if (character != null) {
+                if (character != null && character.isAllItemsCollected() == false) {
+                    System.out.println("endWindowCalled: " + endWindowCalled);
+                    System.out.println("isAllItemsCollected: " + character.isAllItemsCollected());
+                    System.out.println("EndWindowDisplayed: " + EndWindowDisplayed);
                     Round++;
                     character.autoMove();
                     updateForestDisplay();
 
-                    if (!endWindowCalled && character.isAllItemsCollected() && EndWindowDisplayed == false) {
+                    if (!endWindowCalled && EndWindowDisplayed == false) {
                         endWindow(character);
                         endWindowCalled = true;
+                        EndWindowDisplayed = true;
                     }
                 }
             }
