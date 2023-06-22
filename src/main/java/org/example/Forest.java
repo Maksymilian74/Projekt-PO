@@ -2,6 +2,11 @@ package org.example;
 
 import java.util.Random;
 
+/*
+    Klasa Forest inicjalizuje obiekt lasu, jest odpowiedzialna za wygenerowanie mapy,
+    rozmieszczenie na niej poszczególnych obiektów oraz wpisanie ich na listy obiektów
+*/
+
 public class Forest {
     private String[][] cells;
     private Data data;
@@ -26,6 +31,10 @@ public class Forest {
     public void setCell(int x, int y, String value) {
         cells[x][y] = value;
     }
+
+    /*
+        Metoda odpowiedzialna za generowanie mapy
+    */
 
     public void generateForest() {
         data = new Data();

@@ -1,5 +1,9 @@
 package org.example;
 
+/*
+    Klasa Wolf inicjalizuje obiekt wilka, dziedziczy po klasie Object
+*/
+
 public class Wolf extends Object{
     private int id;
 

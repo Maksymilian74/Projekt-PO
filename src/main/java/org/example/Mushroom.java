@@ -1,5 +1,9 @@
 package org.example;
 
+/*
+    Klasa abstrakcyjna Mushroom, dziedziczy po klasie Object
+*/
+
 public class Mushroom extends Object{
     private int id;
     private boolean IfCollected;

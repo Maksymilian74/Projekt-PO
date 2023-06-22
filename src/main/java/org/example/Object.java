@@ -1,5 +1,9 @@
 package org.example;
 
+/*
+    Klasa abstrakcyjna Object
+*/
+
 public class Object {
     private int position_x;
     private int position_y;

@@ -6,6 +6,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Map;
 
+/*
+    Klasa Main jest odpowiedzialna za przeprowadzenie symulacji, zainicjowanie wyskakujących okienek
+*/
+
 public class Main extends JFrame {
 
     private JLabel[][] cells;
@@ -13,7 +17,7 @@ public class Main extends JFrame {
     private Character character;
     private JPanel forestPanel;
     private static JLabel infoLabel;
-    private boolean AutoMove;
+    private static boolean AutoMove;
     private static boolean EndWindowDisplayed;
     private static int Round;
     private boolean MapGenerated;
@@ -40,6 +44,9 @@ public class Main extends JFrame {
     }
     public static void setEndWindowDisplayed() {
         EndWindowDisplayed = true;
+    }
+    public static void setAutoMove() {
+        AutoMove = false;
     }
 
     public static void updateInfoLabel(String tekst) {

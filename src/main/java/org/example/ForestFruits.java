@@ -1,5 +1,9 @@
 package org.example;
 
+/*
+    Klasa ForestFruits inicjalizuje obiekt krzewu, dziedziczy po klasie Object
+*/
+
 public class ForestFruits extends Object{
     private int id;
     private String name;

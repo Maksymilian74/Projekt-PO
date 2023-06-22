@@ -2,6 +2,10 @@ package org.example;
 
 import java.util.ArrayList;
 
+/*
+    Klasa Data przechowuje listy wszystkich obiektów znajdujących się na mapie
+*/
+
 public class Data {
     public static ArrayList<Wolf> ListWolf;
     public static ArrayList<Trees> ListTrees;

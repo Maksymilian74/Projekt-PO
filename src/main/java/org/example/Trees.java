@@ -1,5 +1,9 @@
 package org.example;
 
+/*
+    Klasa Trees inicjalizuje obiekty poszczególnych drzew, dziedziczy po klasie Object
+*/
+
 public class Trees extends Object{
     private int id;
     private String name;
