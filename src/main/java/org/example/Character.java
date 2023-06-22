@@ -35,6 +35,10 @@ public class Character {
         Main.endWindow(this);
     }
 
+    /*
+        Metoda odpowiedzialna za poruszanie się w górę
+    */
+
     public void moveUp() {
         if (position_x > 0) {
             String targetCell = forest.getCell(position_x - 1, position_y);
@@ -49,6 +53,10 @@ public class Character {
             endWindow();
         }
     }
+
+    /*
+        Metoda odpowiedzialna za poruszanie się w dół
+    */
 
     public void moveDown() {
         if (position_x < forest.getSize_x() - 1) {
@@ -65,6 +73,10 @@ public class Character {
         }
     }
 
+    /*
+        Metoda odpowiedzialna za poruszanie się w lewo
+    */
+
     public void moveLeft() {
         if (position_y > 0) {
             String targetCell = forest.getCell(position_x, position_y - 1);
@@ -80,6 +92,10 @@ public class Character {
         }
     }
 
+    /*
+        Metoda odpowiedzialna za poruszanie się w prawo
+    */
+
     public void moveRight() {
         if (position_y < forest.getSize_y() - 1) {
             String targetCell = forest.getCell(position_x, position_y + 1);
@@ -94,6 +110,10 @@ public class Character {
             endWindow();
         }
     }
+
+    /*
+        Metoda odpowiedzialna za zbieranie przedmiotów do koszyka
+    */
 
     private void collectItem(String targetCell, int new_x, int new_y) {
         String nazwa = "";
@@ -190,6 +210,10 @@ public class Character {
         System.out.println();
     }
 
+    /*
+        Metoda odpowiedzialna za automatyczne poruszanie się postacia, wywoływana przez autoMoveCharacter z klasy Main
+    */
+
     public void autoMove() {
         int size_x = forest.getSize_x();
         int size_y = forest.getSize_y();
@@ -211,7 +235,7 @@ public class Character {
                 for (int j = 0; j < size_y; j++) {
                     String cell = forest.getCell(i, j);
 
-                    // Jeśli cel jest grzybem, sprawdź czy został już zebrany
+                    // Jeśli cel jest grzybem
                     if (cell.equals("C") || cell.equals("T") || cell.equals("P") || cell.equals("O") || cell.equals("M") || cell.equals("I")) {
                         distance = Math.abs(position_x - i) + Math.abs(position_y - j);
                         if (distance < minDistance) {
@@ -253,10 +277,10 @@ public class Character {
                             int diff_x = optimalPath.x - position_x;
                             int diff_y = optimalPath.y - position_y;
 
-                            // Sprawdź, czy istnieje inny drzewo na kratkę powyżej postaci
+                            // Sprawdź, czy istnieje inny drzewo na polu powyżej postaci
                             boolean isTreeAbove = isTree(position_x, position_y - 1);
                             if (isTreeAbove && position_y > 1 && isTree(position_x, position_y - 2)) {
-                                // Jeśli istnieje drzewo powyżej i na odległość 2 kratki, wykonaj inny ruch
+                                // Jeśli istnieje drzewo powyżej i na odległość 2 pól, wykonaj inny ruch
                                 // Ominięcie drzewa wykonując ruch w lewo, jeśli to możliwe
                                 if (position_x > 0 && !isTree(position_x - 1, position_y - 1)) {
                                     moveUp();
@@ -337,7 +361,7 @@ public class Character {
                     }
                 }
             }
-            // Jeśli nie znaleziono celu, zakończ grę
+            // Jeśli nie znaleziono celu, zakończ symulację
             else {
                 allItemsCollected = true;
                 endWindow();
@@ -388,13 +412,19 @@ public class Character {
         }
     }
 
-
+    /*
+        Metoda odpowiedzialna za sprawdzenie, czy postać utknęła
+    */
 
     private boolean isStuck() {
         return (position_x == 0 || position_x == forest.getSize_x() - 1) && (position_y == 0 || position_y == forest.getSize_y() - 1)
                 && isTree(position_x - 1, position_y) && isTree(position_x + 1, position_y)
                 && isTree(position_x, position_y - 1) && isTree(position_x, position_y + 1);
     }
+
+    /*
+        Metoda odpowiedzialna za sprawdzenie, czy na naszej drodze jest drzewo
+    */
 
     private boolean isTree(int x, int y) {
         if (x < 0 || y < 0 || x >= forest.getSize_x() || y >= forest.getSize_y()) {
@@ -404,6 +434,10 @@ public class Character {
         String cell = forest.getCell(x, y);
         return cell.equals("D") || cell.equals("R") || cell.equals("S");
     }
+
+    /*
+        Metoda odpowiedzialna za znalezienie alternatywnej ścieżki
+    */
 
     private List<Point> findAlternativePaths(int x, int y) {
         List<Point> paths = new ArrayList<>();
@@ -425,21 +459,41 @@ public class Character {
         return paths;
     }
 
+    /*
+        Metoda odpowiedzialna za sprawdzenie, czy postać może się poruszyć w lewo
+    */
+
     private boolean canMoveLeft(int x, int y) {
         return y > 0 && !isTree(x, y - 1);
     }
+
+    /*
+        Metoda odpowiedzialna za sprawdzenie, czy postać może się poruszyć w prawo
+    */
 
     private boolean canMoveRight(int x, int y) {
         return y < forest.getSize_y() - 1 && !isTree(x, y + 1);
     }
 
+    /*
+        Metoda odpowiedzialna za sprawdzenie, czy postać może się poruszyć w górę
+    */
+
     private boolean canMoveUp(int x, int y) {
         return x > 0 && !isTree(x - 1, y);
     }
 
+    /*
+        Metoda odpowiedzialna za sprawdzenie, czy postać może się poruszyć w dół
+    */
+
     private boolean canMoveDown(int x, int y) {
         return x < forest.getSize_x() - 1 && !isTree(x + 1, y);
     }
+
+    /*
+        Metoda odpowiedzialna za znalezeinie optymalnej ścieżki
+    */
 
     private Point findOptimalPath(List<Point> paths) {
         Point optimalPath = null;
@@ -455,6 +509,10 @@ public class Character {
 
         return optimalPath;
     }
+
+    /*
+        Metoda odpowiedzialna za wykonanie losowego ruchu
+    */
 
     private void randomMove() {
         // Wykonaj losowy ruch
@@ -488,6 +546,10 @@ public class Character {
                 break;
         }
     }
+
+    /*
+        Metoda odpowiedzialna za przechowanie zawartości pola przed stanięciem tam postacią
+    */
 
     private void handleCell(String targetCell, int new_x, int new_y) {
         if (targetCell.equals("M") || targetCell.equals("I") || targetCell.equals("O") || targetCell.equals("P") || targetCell.equals("C") || targetCell.equals("T")) {
