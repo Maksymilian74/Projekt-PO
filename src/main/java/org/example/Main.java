@@ -53,8 +53,11 @@ public class Main extends JFrame {
         infoLabel.setText(tekst);
     }
 
+    /*
+        Metoda odpowiedzialna za wyświetlenie okna podsumowania
+    */
+
     public static void endWindow(Character character) {
-        //EndWindowDisplayed = true;
         JFrame frame = new JFrame();
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
@@ -90,6 +93,10 @@ public class Main extends JFrame {
 
     }
 
+    /*
+        Metoda odpowiedzialna za aktualizowanie pól lasu
+    */
+
     private void updateForestDisplay() {
         int size = forest.getSize_x();
 
@@ -102,6 +109,10 @@ public class Main extends JFrame {
             }
         }
     }
+
+    /*
+        Metoda odpowiedzialna za automatyczne poruszanie się postaci, wywołuje metodę AutoMove z klasy Character
+    */
 
     private void autoMoveCharacter() {
         Timer timer = new Timer(1000, new ActionListener() {
@@ -126,6 +137,10 @@ public class Main extends JFrame {
         });
         timer.start();
     }
+
+    /*
+        Metoda odpowiedzialna za inicjalizację okna symulacji
+    */
 
     private void initializeUI() {
         JPanel mainPanel = new JPanel(new BorderLayout());
@@ -262,6 +277,10 @@ public class Main extends JFrame {
         sidePanel.add(controlPanel,BorderLayout.CENTER);
         add(mainPanel);
 
+        /*
+             Przycisk odpowiedzialny za wystartowanie automatycznego ruchu
+        */
+
         startAutomoveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -279,6 +298,10 @@ public class Main extends JFrame {
                 }
             }
         });
+
+        /*
+             Przycisk odpowiedzialny za wyłączenie automatycznego ruchu
+        */
 
         stopAutomoveButton.addActionListener(new ActionListener() {
             @Override
@@ -298,6 +321,9 @@ public class Main extends JFrame {
             }
         });
 
+        /*
+             Przycisk odpowiedzialny za wygenerowanie lasu
+        */
 
         generateButton.addActionListener(new ActionListener() {
             @Override
@@ -324,6 +350,10 @@ public class Main extends JFrame {
             }
         });
 
+        /*
+             Przycisk odpowiedzialny za poruszanie się w górę
+        */
+
         moveUpButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -338,6 +368,10 @@ public class Main extends JFrame {
                 }
             }
         });
+
+        /*
+             Przycisk odpowiedzialny za poruszanie się w dół
+        */
 
         moveDownButton.addActionListener(new ActionListener() {
             @Override
@@ -354,6 +388,10 @@ public class Main extends JFrame {
             }
         });
 
+        /*
+             Przycisk odpowiedzialny za poruszanie się w lewo
+        */
+
         moveLeftButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -368,6 +406,10 @@ public class Main extends JFrame {
                 }
             }
         });
+
+        /*
+             Przycisk odpowiedzialny za poruszanie się w prawo
+        */
 
         moveRightButton.addActionListener(new ActionListener() {
             @Override
@@ -384,6 +426,10 @@ public class Main extends JFrame {
             }
         });
     }
+
+        /*
+            Metoda odpowiedzialna za dobieranie kolorów w zależności od obiektu znajdującego się na danym polu
+        */
 
     private Color getColorForCell(String cell) {
         switch (cell) {
@@ -427,6 +473,10 @@ public class Main extends JFrame {
                 return new Color(255, 255, 255);
         }
     }
+
+        /*
+            Metoda odpowiedzialna za generowanie komórek lasu
+        */
 
     private void generateForestCells(int size) {
         forestPanel.removeAll();

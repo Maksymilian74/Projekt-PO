@@ -13,12 +13,14 @@ public class Character {
     private Forest forest;
     private HashMap<String, Integer> Basket;
     private boolean allItemsCollected = false;
+    int repeatedMovesCount;
 
     public Character(Forest forest) {
         this.forest = forest;
         position_x = 0;
         position_y = 0;
         previousCell = "L";
+        repeatedMovesCount = 0;
         forest.setCell(position_x, position_y, "☺");
         Basket = new HashMap<>();
     }
@@ -196,10 +198,11 @@ public class Character {
         int target_x = -1;
         int target_y = -1;
         int minDistance = Integer.MAX_VALUE;
-        int repeatedMovesCount = 0;
-        final int MAX_REPEATED_MOVES = 3;
+        final int MAX_REPEATED_MOVES = 6;
         int lastPositionX = position_x;
-        int lastPositionY = position_y;
+        int lastLastPositionX = position_x;
+        int lastPositionY = position_x;
+        int lastLastPositionY = position_y;
         int Stuck = 0;
 
         if (canMoveDown(position_x,position_y) || canMoveUp(position_x,position_y) || canMoveLeft(position_x,position_y) || canMoveRight(position_x,position_y)) {
@@ -258,12 +261,16 @@ public class Character {
                                 if (position_x > 0 && !isTree(position_x - 1, position_y - 1)) {
                                     moveUp();
                                     moveLeft();
+                                    if(repeatedMovesCount>0)
+                                    repeatedMovesCount--;
                                     return;
                                 }
                                 // Ominięcie drzewa wykonując ruch w prawo, jeśli to możliwe
                                 if (position_x < size_x - 1 && !isTree(position_x + 1, position_y - 1)) {
                                     moveUp();
                                     moveRight();
+                                    if(repeatedMovesCount>0)
+                                    repeatedMovesCount--;
                                     return;
                                 }
                             }
@@ -271,18 +278,26 @@ public class Character {
                             // Wykonaj ruch w kierunku optymalnej ścieżki
                             if (diff_y < 0 && position_y > 0 && !isTree(position_x, position_y - 1)) {
                                 moveLeft();
+                                if(repeatedMovesCount>0)
+                                repeatedMovesCount--;
                                 return;
                             }
                             if (diff_y > 0 && position_y < size_y - 1 && !isTree(position_x, position_y + 1)) {
                                 moveRight();
+                                if(repeatedMovesCount>0)
+                                repeatedMovesCount--;
                                 return;
                             }
                             if (diff_x < 0 && position_x > 0 && !isTree(position_x - 1, position_y)) {
                                 moveUp();
+                                if(repeatedMovesCount>0)
+                                repeatedMovesCount--;
                                 return;
                             }
                             if (diff_x > 0 && position_x < size_x - 1 && !isTree(position_x + 1, position_y)) {
                                 moveDown();
+                                if(repeatedMovesCount>0)
+                                repeatedMovesCount--;
                                 return;
                             }
                         }
@@ -298,18 +313,26 @@ public class Character {
                     // Wykonaj ruch w kierunku celu
                     if (diff_y < 0 && position_y > 0 && !isTree(position_x, position_y - 1)) {
                         moveLeft();
+                        if(repeatedMovesCount>0)
+                        repeatedMovesCount--;
                         return;
                     }
                     if (diff_y > 0 && position_y < size_y - 1 && !isTree(position_x, position_y + 1)) {
                         moveRight();
+                        if(repeatedMovesCount>0)
+                        repeatedMovesCount--;
                         return;
                     }
                     if (diff_x < 0 && position_x > 0 && !isTree(position_x - 1, position_y)) {
                         moveUp();
+                        if(repeatedMovesCount>0)
+                        repeatedMovesCount--;
                         return;
                     }
                     if (diff_x > 0 && position_x < size_x - 1 && !isTree(position_x + 1, position_y)) {
                         moveDown();
+                        if(repeatedMovesCount>0)
+                        repeatedMovesCount--;
                         return;
                     }
                 }
@@ -321,30 +344,35 @@ public class Character {
                 Main.setEndWindowDisplayed();
                 return;
             }
-
             // Sprawdź, czy przekroczono maksymalną liczbę powtórzeń ruchu do tego samego miejsca
-            if (position_x == lastPositionX && position_y == lastPositionY) {
+            if (position_x == lastLastPositionX && position_y == lastLastPositionY) {
                 repeatedMovesCount++;
                 if (repeatedMovesCount >= MAX_REPEATED_MOVES) {
                     Main.updateInfoLabel("AutoMove OFF - przeszkoda");
+                    Main.setAutoMove();
+                    endWindow();
+                    Main.setEndWindowDisplayed();
                     return;
                 }
             } else {
+                lastLastPositionX = lastPositionX;
+                lastLastPositionY = lastPositionY;
                 lastPositionX = position_x;
                 lastPositionY = position_y;
-                repeatedMovesCount = 0;
+                repeatedMovesCount--;
             }
 
             // Jeśli nie można wykonać żadnego ruchu, wykonaj losowy ruch
             if (isStuck()) {
                 Main.updateInfoLabel("AutoMove OFF - brak ruchów");
-                System.out.println("Tutaj!!!!!!!!!!");
+                Main.setAutoMove();
+                endWindow();
+                Main.setEndWindowDisplayed();
             } else {
                 if(Stuck < 3) {
                     randomMove();
                     Stuck++;
                 } else {
-                    System.out.println("To użycie!!!!!!!!!!");
                     Main.updateInfoLabel("AutoMove OFF");
                     Main.setAutoMove();
                     endWindow();

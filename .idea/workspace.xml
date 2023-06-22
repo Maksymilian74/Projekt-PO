@@ -7,17 +7,7 @@
     <list default="true" id="50449fb7-f461-49bf-a63e-acba5781ae13" name="Changes" comment="Dodanie zabezpieczeń przycisków">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Data.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/EatableMushrooms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/EatableMushrooms.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Forest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Forest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ForestFruits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ForestFruits.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HealingMushrooms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/HealingMushrooms.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Mushroom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Mushroom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Object.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Object.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ToxicMushrooms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ToxicMushrooms.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Trees.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Trees.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Wolf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Wolf.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
