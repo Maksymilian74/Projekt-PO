@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="50449fb7-f461-49bf-a63e-acba5781ae13" name="Changes" comment="Ostanie komentarze">
+    <list default="true" id="50449fb7-f461-49bf-a63e-acba5781ae13" name="Changes" comment="modyfikacja">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Mushroom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Mushroom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/EatableMushrooms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/EatableMushrooms.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Forest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Forest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HealingMushrooms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/HealingMushrooms.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ToxicMushrooms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ToxicMushrooms.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687470954477</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="modyfikacja">
+      <created>1687474123295</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1687474123295</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -131,6 +141,7 @@
     <MESSAGE value="Dodanie zabezpieczeń przycisków" />
     <MESSAGE value="Poprawki i dodanie komentarzy w kodzie" />
     <MESSAGE value="Ostanie komentarze" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ostanie komentarze" />
+    <MESSAGE value="modyfikacja" />
+    <option name="LAST_COMMIT_MESSAGE" value="modyfikacja" />
   </component>
 </project>

@@ -58,37 +58,37 @@ public class Forest {
                     } else if ((randomNumber >= 0.25 && randomNumber < 0.4) || (randomNumber >= 0.5 && randomNumber < 0.65)) {
                         if (randomNumber >= 0.25 && randomNumber < 0.3) {
                             cells[x][y] = "I";
-                            HealingMushrooms healingMushrooms = new HealingMushrooms(x,y,mushroomId,false,"Pieprznik","Antibacterial");
+                            HealingMushrooms healingMushrooms = new HealingMushrooms(x,y,mushroomId,"Pieprznik","Antibacterial");
                             Data.ListMushroom.add(healingMushrooms);
                             mushroomId++;
                         }
                         else if (randomNumber >= 0.3 && randomNumber < 0.35) {
                             cells[x][y] = "M";
-                            HealingMushrooms healingMushrooms = new HealingMushrooms(x,y,mushroomId,false,"Maitake","Mood improvement");
+                            HealingMushrooms healingMushrooms = new HealingMushrooms(x,y,mushroomId,"Maitake","Mood improvement");
                             Data.ListMushroom.add(healingMushrooms);
                             mushroomId++;
                         }
                         else if (randomNumber >= 0.35 && randomNumber < 0.4) {
                             cells[x][y] = "O";
-                            EatableMushrooms eatableMushrooms = new EatableMushrooms(x,y,mushroomId,false,"Borowik","Taste improvement");
+                            EatableMushrooms eatableMushrooms = new EatableMushrooms(x,y,mushroomId,"Borowik","Taste improvement");
                             Data.ListMushroom.add(eatableMushrooms);
                             mushroomId++;
                         }
                         else if (randomNumber >= 0.5 && randomNumber < 0.55) {
                             cells[x][y] = "P";
-                            EatableMushrooms eatableMushrooms = new EatableMushrooms(x,y,mushroomId,false,"Podgrzybek","Stops hunger");
+                            EatableMushrooms eatableMushrooms = new EatableMushrooms(x,y,mushroomId,"Podgrzybek","Stops hunger");
                             Data.ListMushroom.add(eatableMushrooms);
                             mushroomId++;
                         }
                         else if (randomNumber >= 0.55 && randomNumber < 0.6) {
                             cells[x][y] = "C";
-                            ToxicMushrooms toxicMushrooms = new ToxicMushrooms(x,y,mushroomId,false,"Muchomor czerwony","Stomachache");
+                            ToxicMushrooms toxicMushrooms = new ToxicMushrooms(x,y,mushroomId,"Muchomor czerwony","Stomachache");
                             Data.ListMushroom.add(toxicMushrooms);
                             mushroomId++;
                         }
                         else if (randomNumber >= 0.6 && randomNumber < 0.65) {
                             cells[x][y] = "T";
-                            ToxicMushrooms toxicMushrooms = new ToxicMushrooms(x,y,mushroomId,false,"Muchomor stomotnikowy","Death");
+                            ToxicMushrooms toxicMushrooms = new ToxicMushrooms(x,y,mushroomId,"Muchomor stomotnikowy","Death");
                             Data.ListMushroom.add(toxicMushrooms);
                             mushroomId++;
                         }
@@ -134,37 +134,37 @@ public class Forest {
                     } else if ((randomNumber >= 0.25 && randomNumber < 0.45) || (randomNumber >= 0.55 && randomNumber < 0.65)) {
                         if (randomNumber >= 0.25 && randomNumber < 0.3) {
                             cells[x][y] = "I";
-                            HealingMushrooms healingMushrooms = new HealingMushrooms(x,y,mushroomId,false,"Pieprznik","Antibacterial");
+                            HealingMushrooms healingMushrooms = new HealingMushrooms(x,y,mushroomId,"Pieprznik","Antibacterial");
                             Data.ListMushroom.add(healingMushrooms);
                             mushroomId++;
                         }
                         else if (randomNumber >= 0.3 && randomNumber < 0.35) {
                             cells[x][y] = "M";
-                            HealingMushrooms healingMushrooms = new HealingMushrooms(x,y,mushroomId,false,"Maitake","Mood improvement");
+                            HealingMushrooms healingMushrooms = new HealingMushrooms(x,y,mushroomId,"Maitake","Mood improvement");
                             Data.ListMushroom.add(healingMushrooms);
                             mushroomId++;
                         }
                         else if (randomNumber >= 0.35 && randomNumber < 0.4) {
                             cells[x][y] = "O";
-                            EatableMushrooms eatableMushrooms = new EatableMushrooms(x,y,mushroomId,false,"Borowik","Taste improvement");
+                            EatableMushrooms eatableMushrooms = new EatableMushrooms(x,y,mushroomId,"Borowik","Taste improvement");
                             Data.ListMushroom.add(eatableMushrooms);
                             mushroomId++;
                         }
                         else if (randomNumber >= 0.4 && randomNumber < 0.45) {
                             cells[x][y] = "P";
-                            EatableMushrooms eatableMushrooms = new EatableMushrooms(x,y,mushroomId,false,"Podgrzybek","Stops hunger");
+                            EatableMushrooms eatableMushrooms = new EatableMushrooms(x,y,mushroomId,"Podgrzybek","Stops hunger");
                             Data.ListMushroom.add(eatableMushrooms);
                             mushroomId++;
                         }
                         else if (randomNumber >= 0.55 && randomNumber < 0.6) {
                             cells[x][y] = "C";
-                            ToxicMushrooms toxicMushrooms = new ToxicMushrooms(x,y,mushroomId,false,"Muchomor czerwony","Stomachache");
+                            ToxicMushrooms toxicMushrooms = new ToxicMushrooms(x,y,mushroomId,"Muchomor czerwony","Stomachache");
                             Data.ListMushroom.add(toxicMushrooms);
                             mushroomId++;
                         }
                         else if (randomNumber >= 0.6 && randomNumber < 0.65) {
                             cells[x][y] = "T";
-                            ToxicMushrooms toxicMushrooms = new ToxicMushrooms(x,y,mushroomId,false,"Muchomor stomotnikowy","Death");
+                            ToxicMushrooms toxicMushrooms = new ToxicMushrooms(x,y,mushroomId,"Muchomor stomotnikowy","Death");
                             Data.ListMushroom.add(toxicMushrooms);
                             mushroomId++;
                         }
